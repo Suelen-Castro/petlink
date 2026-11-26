@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Petlink — Encontros que mudam vidas</title>
+  <style>
+    :root{--ink:#241d2b;--muted:#69756e;--green:#3f7652;--green2:#5e936a;--lime:#f4c430;--cream:#fffdf6;--white:#fff;--line:#e7e7de;--orange:#f4c430;--shadow:0 18px 50px #241d2b12}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}.wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+    header{height:82px;display:flex;align-items:center;border-bottom:1px solid #241d2b10;background:#ffffffeF;position:sticky;top:0;z-index:10;backdrop-filter:blur(16px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:850;letter-spacing:-1px}nav{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:650;color:#516159}nav a:hover{color:var(--green)}.nav-actions{display:flex;align-items:center;gap:10px}.btn{border:0;border-radius:999px;padding:13px 19px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.btn-outline{background:transparent;border:1px solid #ccd4cb;color:var(--ink)}.btn-primary{background:var(--green);color:white}.btn-primary:hover{background:#244934}.menu-toggle{display:none;border:0;background:transparent;font-size:26px;color:var(--ink)}
+    .hero{padding:64px 0 54px;overflow:hidden;background-image:linear-gradient(90deg,rgba(24,55,34,.66),rgba(24,55,34,.28)),url("assets/banner/banner.jpg");background-size:cover;background-position:center}.hero-grid{display:grid;grid-template-columns:1fr;gap:0}.hero-grid>div:first-child{max-width:560px}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:12px;font-weight:800;letter-spacing:1.25px;text-transform:uppercase}.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--orange)}h1{font-size:clamp(43px,5.2vw,68px);line-height:1.02;letter-spacing:-3.7px;margin:20px 0 18px;font-weight:850;color:#fff;max-width:540px}.hero h1 em{font-style:normal;color:var(--lime)}.hero-copy{font-size:17px;line-height:1.7;color:#f1f6f2;max-width:505px;margin:0}.hero-actions{display:flex;gap:12px;align-items:center;margin-top:28px;flex-wrap:wrap}.hero-actions .btn{padding:15px 21px}.hero .btn-outline{color:#fff;border-color:#ffffffb8}.hero .btn-outline:hover{background:#ffffff1c}.tiny-proof{margin-top:28px;display:flex;gap:12px;align-items:center;color:#fff;font-size:12px}.avatars{display:flex;padding-left:5px}.avatars img{height:30px;width:30px;margin-left:-6px;border:2px solid #fff;border-radius:50%;object-fit:cover;background:#e5bd9f}
+    .search-panel{position:relative;margin-top:34px;background:white;padding:13px;border-radius:20px;display:grid;grid-template-columns:1.35fr 1fr 1fr auto;gap:8px;box-shadow:var(--shadow);border:1px solid #eaece5}.search-field{padding:8px 13px;border-right:1px solid var(--line)}.search-field label{display:block;font-size:10px;font-weight:800;color:#617168;margin-bottom:6px}.search-field input,.search-field select{border:0;background:transparent;outline:0;width:100%;font-size:13px;color:var(--ink)}.search-panel .btn{border-radius:13px;padding:0 23px}
+    .marketplace-spotlight{padding:24px 24px 0;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}.marketplace-cta{width:min(560px,100%);min-height:86px;padding:16px 22px;border-radius:22px;background:#3f7652;color:#fff;display:flex;align-items:center;gap:16px;box-shadow:0 15px 35px #3f76522b;transition:transform .2s,box-shadow .2s}.marketplace-cta:hover{transform:translateY(-3px)}.marketplace-cta.lost-cta{background:#244934}.marketplace-icon{width:50px;height:50px;border-radius:16px;background:#f4c430;color:#24372a;display:grid;place-items:center;font-size:23px;flex:none}.marketplace-label{font-size:19px;font-weight:850;letter-spacing:-.5px}.marketplace-label small{display:block;margin-top:4px;font-size:11px;font-weight:500;color:#e5f0e5}.marketplace-arrow{margin-left:auto;font-size:26px;color:#f4c430}
+    .section{padding:62px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:27px}.section-head .eyebrow{color:var(--green)}.section-head h2{font-size:clamp(28px,3vw,39px);letter-spacing:-1.6px;margin:9px 0 0}.text-link{color:var(--green);font-weight:750;font-size:14px;white-space:nowrap}.pet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.pet-card{background:white;border:1px solid #ecece5;border-radius:23px;overflow:hidden;transition:transform .22s,box-shadow .22s}.pet-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.pet-image{height:218px;position:relative;overflow:hidden;background:#d5dfce}.pet-image img{width:100%;height:100%;display:block;object-fit:cover}.tag{position:absolute;top:14px;left:14px;background:#fbeb94;border-radius:999px;padding:7px 11px;font-size:10px;font-weight:800}.save{position:absolute;top:12px;right:12px;border:0;width:35px;height:35px;border-radius:50%;background:#ffffffeb;color:#52665a;font-size:18px}.pet-info{padding:17px 18px 18px}.pet-title{display:flex;justify-content:space-between;align-items:center}.pet-title h3{margin:0;font-size:19px;letter-spacing:-.4px}.age{color:#68766d;font-size:12px}.pet-meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px}.pet-meta span{background:#fbeb94;border-radius:8px;padding:6px 9px;font-size:10px;color:#58675e}.pet-meta .location{color:#315e48;font-weight:750}.org{margin-top:12px;padding:10px;background:#e4efdf;border-radius:12px;color:#315e48;font-size:11px;display:flex;align-items:center;gap:9px}.org-mark{height:31px;width:31px;flex:none;border-radius:10px;background:#fbeb94;display:grid;place-items:center;font-size:15px}.org-info{display:flex;flex-direction:column;gap:3px}.org-info small{font-size:9px;color:#718078}.org-info strong{font-size:12px;color:#294b34;line-height:1.2}
+    .vaccine-banner{margin-bottom:28px;background:#fff;border:1px solid #dce6d9;border-left:5px solid var(--green);border-radius:20px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;box-shadow:var(--shadow)}.vaccine-banner h3{margin:0 0 4px;font-size:16px;color:var(--green)}.vaccine-banner p{margin:0;font-size:13px;color:var(--muted);max-width:680px}
+    .mission{padding:20px 0 76px}.mission-box{border-radius:30px;padding:44px 48px;background:var(--green);color:white;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:35px;position:relative;overflow:hidden}.mission h2{font-size:36px;line-height:1.1;letter-spacing:-1.5px;margin:10px 0 13px;max-width:480px}.mission p{margin:0;color:#d5e2d8;line-height:1.7;font-size:14px;max-width:470px}.mission .eyebrow{color:var(--lime)}.mission-stats{display:grid;grid-template-columns:1fr 1fr;gap:13px;z-index:1}.stat{border:1px solid #ffffff30;background:#ffffff0c;border-radius:18px;padding:20px}.stat strong{display:block;color:var(--lime);font-size:29px;letter-spacing:-1px}.stat span{font-size:11px;color:#dce8de}
+    footer{padding:28px 0 38px;border-top:1px solid var(--line);color:#778179;font-size:12px}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:20px}.logo-image{display:block;width:132px;height:44px;object-fit:contain;object-position:left center}.theme-toggle{width:35px;height:35px;border:1px solid var(--line);border-radius:50%;background:var(--white);color:var(--green);font-size:17px;display:grid;place-items:center;flex:none}.notice{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:white;padding:13px 19px;border-radius:999px;font-size:13px;box-shadow:var(--shadow);transition:.25s;z-index:20}.notice.show{opacity:1;transform:translate(-50%,0)}
+    html[data-theme="dark"]{color-scheme:dark;--ink:#f6f1fa;--muted:#bdb2c9;--cream:#17141b;--white:#202820;--line:#354337;--pale:#263d2e;--shadow:0 14px 38px #0005}html[data-theme="dark"] body{background:#17141b;color:var(--ink)}html[data-theme="dark"] header{background:#17141beF;border-color:#354337}html[data-theme="dark"] .pet-card,html[data-theme="dark"] .search-panel,html[data-theme="dark"] .vaccine-banner{background:#202820;border-color:#354337}html[data-theme="dark"] .search-field input,html[data-theme="dark"] .search-field select{color:var(--ink)}
+    @media(max-width:850px){.pet-grid{grid-template-columns:1fr 1fr}.mission-box{padding:36px}}
+    @media(max-width:700px){.wrap{width:min(100% - 34px,520px)}header{height:70px}.nav-actions .btn-outline{display:none}.menu-toggle{display:block}nav{display:none;position:absolute;top:69px;left:0;right:0;background:var(--cream);padding:18px 24px 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}nav.open{display:flex}.hero{padding:42px 0 35px;background-position:78% center}h1{font-size:44px;letter-spacing:-2.4px}.search-panel{grid-template-columns:1fr}.search-field{border-right:0;border-bottom:1px solid var(--line)}.pet-grid{grid-template-columns:1fr}.mission-box{grid-template-columns:1fr;padding:30px 24px}}
+  
+    .dlg-back{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;padding:18px;z-index:60}
+    .dlg-back.open{display:flex}
+    .dlg{background:var(--white);color:var(--ink);border-radius:20px;max-width:640px;width:100%;max-height:90vh;overflow:auto;padding:26px 28px;box-shadow:0 30px 80px #0006;position:relative}
+    .dlg h2{margin:0 0 4px;font-size:22px;letter-spacing:-.5px;padding-right:28px}
+    .dlg h4{margin:18px 0 6px;font-size:13px}
+    .dlg p,.dlg li,.dlg dd{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 6px}
+    .dlg ul{margin:0;padding-left:18px}
+    .dlg dl{margin:0;display:grid;grid-template-columns:150px 1fr;gap:6px 14px}
+    .dlg dt{font-size:12px;font-weight:750;color:var(--ink)}
+    .dlg dd{margin:0}
+    .dlg-x{position:absolute;top:12px;right:16px;border:0;background:transparent;font-size:26px;line-height:1;color:var(--muted);cursor:pointer}
+    .dlg-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .dlg .note{background:var(--pale,#e4efdf);border-radius:12px;padding:10px 13px;font-size:12px;line-height:1.55;color:var(--ink);margin:12px 0 0}
+    .dlg label{display:block;font-size:12px;font-weight:750;margin:12px 0 5px;color:var(--ink)}
+    .dlg input,.dlg select,.dlg textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink);font:inherit;font-size:13px}
+    .dlg textarea{min-height:84px;resize:vertical}
+    .dlg .err{color:#b3261e;font-size:12px;margin-top:10px;display:none}
+    .dlg .err.show{display:block}
+    .dlg .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .dlg-btn{border:0;border-radius:999px;padding:11px 18px;font-weight:750;font-size:13px;cursor:pointer;background:var(--green);color:#fff}
+    .dlg-btn.alt{background:transparent;border:1px solid var(--line);color:var(--ink)}
+    .chip{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:750;background:var(--pale,#e4efdf);color:var(--green)}
+    .demo-note{font-size:12px;color:var(--muted);margin:0 0 18px}
+    @media(max-width:600px){.dlg dl{grid-template-columns:1fr}.dlg .two{grid-template-columns:1fr}}
+
+    .pet-grid{grid-template-columns:repeat(4,1fr)}
+    @media(max-width:1000px){.pet-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.pet-grid{grid-template-columns:1fr}}
+    .pet-card[hidden],.empty-results[hidden],.pet-grid[hidden]{display:none}
+    .pet-image img{cursor:pointer}
+    .pet-info .chip{margin:8px 0 2px}
+    @media(min-width:851px){.search-panel{grid-template-columns:1.2fr 1fr 1fr 1fr auto}}
+    .more-toggle{grid-column:1/-1;justify-self:start;background:none;border:0;color:var(--green);font-weight:750;font-size:13px;padding:2px 13px}
+    .more-filters{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border-top:1px solid var(--line);padding-top:8px}
+    .more-filters[hidden]{display:none}
+    @media(max-width:850px){.more-filters{grid-template-columns:1fr 1fr}}
+    .result-tools{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+    button.text-link{background:none;border:0;padding:0;font:inherit;font-weight:750;color:var(--green);cursor:pointer}
+    .applied{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+    .applied-chip{border:1px solid var(--line);background:var(--white);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer}
+    .empty-results{background:var(--white);border:1px dashed var(--line);border-radius:20px;padding:30px;text-align:center}
+    .empty-results p{color:var(--muted);font-size:14px;max-width:560px;margin:8px auto 16px;line-height:1.6}
+    .how-steps{margin:16px 0 0;padding-left:20px;font-size:14px;line-height:1.7}
+    .how-steps li{margin-bottom:4px}
+    .tiny-proof{margin-top:26px;font-size:14px;color:#f1f6f2}
+    .mission-stats .stat strong{font-size:22px}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Petlink, início"><img class="logo-image" src="assets/logo/logo-verde-sem-fundo.webp" alt="Petlink"></a>
+      <nav id="main-nav" aria-label="Navegação principal">
+        <a href="#adocao">Adotar</a>
+        <a href="pets-perdidos.html">Perdidos e encontrados</a>
+        <a href="marketplace.html">Catálogo de parceiros</a>
+        <a href="#causa">Nossa causa</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-outline" href="ong.html">Sou uma ONG</a>
+        <a class="btn btn-primary" href="#adocao">Quero adotar <span>↗</span></a>
+        <button class="theme-toggle" data-theme-toggle aria-label="Alternar tema claro ou escuro" title="Alternar tema">☾</button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow"><i></i> Adoção com o coração e responsabilidade</div>
+            <h1>Um novo melhor amigo <em>está por aí.</em></h1>
+            <p class="hero-copy">Conectamos cães e gatos que precisam de um lar a pessoas prontas para transformar duas vidas: a deles e a sua.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#adocao">Quero adotar <span>→</span></a>
+              <a class="btn btn-outline" href="#como-funciona">Conheça o Petlink</a>
+            </div>
+            <div class="tiny-proof"><span><b>✓ Castração confirmada:</b> só aparecem animais castrados e informados pela ONG responsável</span></div>
+          </div>
+        </div>
+
+        <form class="search-panel" id="search-form">
+          <div class="search-field"><label for="f-city">Município e UF</label><input id="f-city" placeholder="Ex.: Campinas, SP"></div>
+          <div class="search-field"><label for="f-species">Espécie</label><select id="f-species"><option value="">Cães e gatos</option><option>Cachorro</option><option>Gato</option></select></div>
+          <div class="search-field"><label for="f-size">Porte</label><select id="f-size"><option value="">Todos</option><option>Pequeno</option><option>Médio</option><option>Grande</option></select></div>
+          <div class="search-field"><label for="f-age">Faixa etária</label><select id="f-age"><option value="">Todas</option><option>Filhote</option><option>Adulto</option><option>Idoso</option></select></div>
+          <button class="btn btn-primary" type="submit"><span>⌕</span> Buscar</button>
+          <button class="more-toggle" id="more-toggle" type="button" aria-expanded="false" aria-controls="more-filters">Mais filtros</button>
+          <div class="more-filters" id="more-filters" hidden>
+            <div class="search-field"><label for="f-sex">Sexo</label><select id="f-sex"><option value="">Todos</option><option>Macho</option><option>Fêmea</option></select></div>
+            <div class="search-field"><label for="f-conv">Convivência informada</label><select id="f-conv"><option value="">Qualquer</option><option value="caes">Com cães</option><option value="gatos">Com gatos</option><option value="criancas">Com crianças</option></select></div>
+            <div class="search-field"><label for="f-care">Cuidados específicos</label><select id="f-care"><option value="">Qualquer</option><option value="1">Precisa de cuidados específicos</option></select></div>
+            <div class="search-field"><label for="f-org">ONG responsável</label><select id="f-org"><option value="">Todas</option><option>Gatinhos do Bem</option><option>Instituto Patinhas Felizes</option><option>ONG Cãopanheiros</option><option>Projeto Miaudote</option></select></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="marketplace-spotlight" aria-label="Acesso rápido">
+      <a class="marketplace-cta" href="marketplace.html">
+        <span class="marketplace-icon">🛍</span>
+        <span class="marketplace-label">Catálogo de parceiros<small>Produtos e serviços para cães e gatos, com benefícios para carteirinha conferida</small></span>
+        <span class="marketplace-arrow">↗</span>
+      </a>
+      <a class="marketplace-cta lost-cta" href="pets-perdidos.html">
+        <span class="marketplace-icon">🔍</span>
+        <span class="marketplace-label">Perdidos e encontrados<small>Publique um aviso ou ajude a localizar cães e gatos perdidos, avistados e encontrados</small></span>
+        <span class="marketplace-arrow">↗</span>
+      </a>
+    </section>
+
+    <section class="section" id="adocao">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow"><i></i> Prontos para conhecer você</div><h2>Talvez seu par esteja aqui</h2></div>
+          <div class="result-tools"><span id="result-count" role="status"></span><button class="text-link" id="saved-toggle" type="button">Ver salvos (0)</button><button class="text-link" id="clear-filters" type="button">Limpar filtros</button></div>
+        </div>
+        <p class="demo-note">Animais e ONGs de exemplo, usados para demonstrar a busca. Favoritos ficam salvos apenas nesta sessão.</p>
+        <div class="applied" id="applied"></div>
+
+        <div class="pet-grid" id="pet-grid">
+          <article class="pet-card" data-id="bento"><div class="pet-image"><span class="tag">Em busca de um lar</span><button class="save" type="button" aria-label="Salvar Bento">♡</button><img src="assets/animais/cachorro1.webp" alt="Bento, cachorro disponível para adoção" loading="lazy"></div><div class="pet-info"><div class="pet-title"><h3>Bento</h3><span class="age">2 anos · Macho</span></div><div class="pet-meta"><span>🐕 Cachorro · porte médio</span><span class="location">📍 São Paulo, SP</span></div><span class="chip">✓ Castração confirmada pela ONG</span><div class="org"><span class="org-mark">🐾</span><span class="org-info"><small>ONG responsável</small><strong>Instituto Patinhas Felizes</strong></span></div><button class="btn btn-primary know" type="button" style="margin-top:12px;width:100%;padding:10px 14px;font-size:13px">Conhecer animal</button></div></article>
+          <article class="pet-card" data-id="amora"><div class="pet-image" style="background:#efdfc8"><span class="tag">Em busca de um lar</span><button class="save" type="button" aria-label="Salvar Amora">♡</button><img src="assets/animais/cachorro2.webp" alt="Amora, cachorro disponível para adoção" loading="lazy"></div><div class="pet-info"><div class="pet-title"><h3>Amora</h3><span class="age">1 ano · Fêmea</span></div><div class="pet-meta"><span>🐕 Cachorro · porte pequeno</span><span class="location">📍 Campinas, SP</span></div><span class="chip">✓ Castração confirmada pela ONG</span><div class="org"><span class="org-mark">💛</span><span class="org-info"><small>ONG responsável</small><strong>ONG Cãopanheiros</strong></span></div><button class="btn btn-primary know" type="button" style="margin-top:12px;width:100%;padding:10px 14px;font-size:13px">Conhecer animal</button></div></article>
+          <article class="pet-card" data-id="nino"><div class="pet-image" style="background:#d9e5e5"><span class="tag">Em busca de um lar</span><button class="save" type="button" aria-label="Salvar Nino">♡</button><img src="assets/animais/gato1.webp" alt="Nino, gato disponível para adoção" loading="lazy"></div><div class="pet-info"><div class="pet-title"><h3>Nino</h3><span class="age">8 meses · Macho</span></div><div class="pet-meta"><span>🐈 Gato · porte pequeno</span><span class="location">📍 Santo André, SP</span></div><span class="chip">✓ Castração confirmada pela ONG</span><div class="org"><span class="org-mark">🌱</span><span class="org-info"><small>ONG responsável</small><strong>Projeto Miaudote</strong></span></div><button class="btn btn-primary know" type="button" style="margin-top:12px;width:100%;padding:10px 14px;font-size:13px">Conhecer animal</button></div></article>
+          <article class="pet-card" data-id="pingo"><div class="pet-image"><span class="tag">Em busca de um lar</span><button class="save" type="button" aria-label="Salvar Pingo">♡</button><img src="assets/animais/gato2.webp" alt="Pingo, gato disponível para adoção" loading="lazy"></div><div class="pet-info"><div class="pet-title"><h3>Pingo</h3><span class="age">7 meses · Macho</span></div><div class="pet-meta"><span>🐈 Gato · porte pequeno</span><span class="location">📍 Guarulhos, SP</span></div><span class="chip">✓ Castração confirmada pela ONG</span><div class="org"><span class="org-mark">🐾</span><span class="org-info"><small>ONG responsável</small><strong>Gatinhos do Bem</strong></span></div><button class="btn btn-primary know" type="button" style="margin-top:12px;width:100%;padding:10px 14px;font-size:13px">Conhecer animal</button></div></article>
+        </div>
+        <div class="empty-results" id="empty" hidden>
+          <strong>Nenhum animal encontrado com esses critérios.</strong>
+          <p id="empty-text"></p>
+          <button class="btn btn-primary" id="widen" type="button">Ampliar busca</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission" id="como-funciona">
+      <div class="wrap">
+        <div class="mission-box" id="causa">
+          <div>
+            <div class="eyebrow"><i></i> Adoção responsável, sempre</div>
+            <h2>Uma adoção segura começa com uma boa conexão.</h2>
+            <p>Conheça a história de cada animal, converse com a ONG e siga as etapas do processo. Depois da adoção, mantenha a carteirinha de vacinação no Petlink: com registros conferidos por veterinário parceiro, você acessa benefícios nos estabelecimentos participantes.</p>
+            <ol class="how-steps">
+              <li><b>Busque</b> com filtros, sem precisar de cadastro.</li>
+              <li><b>Conheça</b> o animal e a ONG responsável.</li>
+              <li><b>Envie interesse</b> e acompanhe o pedido. Enviar interesse não reserva o animal.</li>
+              <li><b>Entrevista, escolha e entrega</b>: a ONG decide e a adoção só termina com a sua confirmação.</li>
+            </ol>
+            <div style="margin-top:23px"><a href="#adocao" class="btn" style="background:var(--lime);color:var(--ink)">Quero adotar <span>→</span></a></div>
+          </div>
+          <div class="mission-stats">
+            <div class="stat"><strong>Castrados</strong><span>toda publicação exige castração confirmada pela ONG</span></div>
+            <div class="stat"><strong>Sem reserva</strong><span>interesse e entrevista não reservam o animal</span></div>
+            <div class="stat"><strong>Sem ranking</strong><span>nenhuma nota ou reputação de adotantes</span></div>
+            <div class="stat"><strong>Conferida</strong><span>benefícios só para registros conferidos por veterinário parceiro</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="brand" href="#inicio"><img class="logo-image" src="assets/logo/logo-verde-sem-fundo.webp" alt="Petlink"></a>
+      <span>Feito com carinho por quem acredita em novos começos. © 2026 Petlink · Conteúdo demonstrativo</span>
+      <div class="footer-links"><a href="#como-funciona">Como funciona</a><a href="ong.html">Para ONGs</a><a href="pets-perdidos.html">Perdidos e encontrados</a></div>
+    </div>
+  </footer>
+
+  <div class="notice" id="notice" role="status"></div>
+  <script>
+    const PETS=[{"id": "bento", "name": "Bento", "img": "cachorro1.webp", "bg": "", "age": "2 anos", "faixa": "Adulto", "sex": "Macho", "species": "Cachorro", "emoji": "🐕", "porte": "Médio", "city": "São Paulo, SP", "ong": "Instituto Patinhas Felizes", "mark": "🐾", "conv": {"caes": "Sim", "gatos": "Não avaliado", "criancas": "Sim"}, "care": "Nenhum cuidado específico informado.", "careFlag": false, "story": "Brincalhão e dócil nas caminhadas. Já viveu com outros cães e com crianças, segundo a ONG.", "vac": "Vacinação informada pela ONG (não conferida por veterinário).", "upd": "20/11/2026"}, {"id": "amora", "name": "Amora", "img": "cachorro2.webp", "bg": "#efdfc8", "age": "1 ano", "faixa": "Adulto", "sex": "Fêmea", "species": "Cachorro", "emoji": "🐕", "porte": "Pequeno", "city": "Campinas, SP", "ong": "ONG Cãopanheiros", "mark": "💛", "conv": {"caes": "Sim", "gatos": "Não avaliado", "criancas": "Não avaliado"}, "care": "Precisa de acompanhamento veterinário para alergia de pele.", "careFlag": true, "story": "Curiosa e carinhosa. Está acostumada com outros cães no abrigo temporário.", "vac": "Vacinação informada pela ONG (não conferida por veterinário).", "upd": "18/11/2026"}, {"id": "nino", "name": "Nino", "img": "gato1.webp", "bg": "#d9e5e5", "age": "8 meses", "faixa": "Filhote", "sex": "Macho", "species": "Gato", "emoji": "🐈", "porte": "Pequeno", "city": "Santo André, SP", "ong": "Projeto Miaudote", "mark": "🌱", "conv": {"caes": "Não avaliado", "gatos": "Sim", "criancas": "Sim"}, "care": "Nenhum cuidado específico informado.", "careFlag": false, "story": "Tranquilo, gosta de colo e de brincar com outros gatos.", "vac": "Vacinação informada pela ONG (não conferida por veterinário).", "upd": "22/11/2026"}, {"id": "pingo", "name": "Pingo", "img": "gato2.webp", "bg": "", "age": "7 meses", "faixa": "Filhote", "sex": "Macho", "species": "Gato", "emoji": "🐈", "porte": "Pequeno", "city": "Guarulhos, SP", "ong": "Gatinhos do Bem", "mark": "🐾", "conv": {"caes": "Não avaliado", "gatos": "Não avaliado", "criancas": "Não avaliado"}, "care": "Nenhum cuidado específico informado.", "careFlag": false, "story": "Ativo e curioso. A ONG ainda não avaliou a convivência com outros animais e crianças.", "vac": "Vacinação informada pela ONG (não conferida por veterinário).", "upd": "23/11/2026"}];
+
+    const $=id=>document.getElementById(id);
+    const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+    function dlg(html){let b=$('dlg-back');if(!b){b=document.createElement('div');b.id='dlg-back';b.className='dlg-back';b.innerHTML='<div class="dlg" role="dialog" aria-modal="true"><button class="dlg-x" aria-label="Fechar" data-close>×</button><div id="dlg-body"></div></div>';document.body.appendChild(b);b.addEventListener('click',e=>{if(e.target===b||e.target.closest('[data-close]'))closeDlg()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDlg()})}$('dlg-body').innerHTML=html;b.classList.add('open');return $('dlg-body')}
+    function closeDlg(){const b=$('dlg-back');if(b)b.classList.remove('open')}
+
+    const menuButton=$('menu-toggle'),mainNav=$('main-nav');
+    menuButton.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');menuButton.setAttribute('aria-expanded',open);menuButton.textContent=open?'×':'☰'});
+    mainNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{mainNav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.textContent='☰'}));
+    let noticeTimer;
+    function showNotice(message){const n=$('notice');n.textContent=message;n.classList.add('show');clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>n.classList.remove('show'),2800)}
+
+    const favKey='petlink-favs';let favs=[];try{favs=JSON.parse(sessionStorage.getItem(favKey)||'[]')}catch(e){}
+    function saveFavs(){try{sessionStorage.setItem(favKey,JSON.stringify(favs))}catch(e){}}
+    let onlySaved=false;
+    const cards=[...document.querySelectorAll('.pet-card')];
+    const LABEL={city:'município e UF',species:'espécie',size:'porte',age:'faixa etária',sex:'sexo',conv:'convivência',care:'cuidados específicos',org:'ONG',saved:'somente salvos'};
+    const val=id=>$(id).value.trim();
+    function criteria(){return {city:val('f-city'),species:val('f-species'),size:val('f-size'),age:val('f-age'),sex:val('f-sex'),conv:val('f-conv'),care:val('f-care'),org:val('f-org'),saved:onlySaved?'1':''}}
+    function syncHearts(){cards.forEach(c=>{const on=favs.includes(c.dataset.id),b=c.querySelector('.save');b.textContent=on?'♥':'♡';b.style.color=on?'#f4c430':'';b.setAttribute('aria-pressed',on)});$('saved-toggle').textContent=(onlySaved?'Ver todos':'Ver salvos ('+favs.length+')')}
+    function toggleFav(id){const i=favs.indexOf(id);if(i<0)favs.push(id);else favs.splice(i,1);saveFavs();syncHearts();apply();return i<0}
+    function apply(){
+      const c=criteria();let n=0;
+      cards.forEach(card=>{const p=PETS.find(x=>x.id===card.dataset.id);let ok=true;
+        if(c.city)ok=ok&&norm(p.city).includes(norm(c.city));
+        if(c.species)ok=ok&&p.species===c.species;
+        if(c.size)ok=ok&&p.porte===c.size;
+        if(c.age)ok=ok&&p.faixa===c.age;
+        if(c.sex)ok=ok&&p.sex===c.sex;
+        if(c.conv)ok=ok&&p.conv[c.conv]==='Sim';
+        if(c.care)ok=ok&&p.careFlag;
+        if(c.org)ok=ok&&p.ong===c.org;
+        if(c.saved)ok=ok&&favs.includes(p.id);
+        card.hidden=!ok;if(ok)n++});
+      const active=Object.keys(c).filter(k=>c[k]);
+      $('result-count').textContent=n+(n===1?' animal disponível':' animais disponíveis');
+      $('applied').innerHTML=active.map(k=>'<button type="button" class="applied-chip" data-k="'+k+'" title="Remover filtro">'+LABEL[k]+' ×</button>').join('');
+      $('clear-filters').hidden=!active.length;
+      $('empty').hidden=n>0;$('pet-grid').hidden=n===0;
+      $('empty-text').textContent=n===0?'Ampliar a busca remove estes critérios: '+active.map(k=>LABEL[k]).join(', ')+'. Informações como convivência não avaliada ficam fora dos filtros de convivência.':'';
+    }
+    function clearAll(){['f-city','f-species','f-size','f-age','f-sex','f-conv','f-care','f-org'].forEach(id=>$(id).value='');onlySaved=false;syncHearts();apply()}
+    $('applied').addEventListener('click',e=>{const b=e.target.closest('.applied-chip');if(!b)return;const m={city:'f-city',species:'f-species',size:'f-size',age:'f-age',sex:'f-sex',conv:'f-conv',care:'f-care',org:'f-org'};if(b.dataset.k==='saved')onlySaved=false;else $(m[b.dataset.k]).value='';syncHearts();apply()});
+    $('clear-filters').addEventListener('click',clearAll);$('widen').addEventListener('click',clearAll);
+    $('saved-toggle').addEventListener('click',()=>{onlySaved=!onlySaved;syncHearts();apply()});
+    $('more-toggle').addEventListener('click',()=>{const h=$('more-filters');h.hidden=!h.hidden;$('more-toggle').setAttribute('aria-expanded',!h.hidden);$('more-toggle').textContent=h.hidden?'Mais filtros':'Menos filtros'});
+    $('search-form').addEventListener('submit',e=>{e.preventDefault();apply();$('adocao').scrollIntoView({behavior:'smooth'})});
+    document.querySelectorAll('.save').forEach(b=>b.addEventListener('click',()=>{const id=b.closest('.pet-card').dataset.id;showNotice(toggleFav(id)?'Pet salvo nos favoritos desta sessão':'Pet removido dos favoritos')}));
+
+    function profile(id){
+      const p=PETS.find(x=>x.id===id);const fav=favs.includes(id);
+      const conv=k=>p.conv[k];
+      dlg('<h2>'+esc(p.name)+'</h2><p>'+esc(p.species)+' · '+esc(p.sex)+' · '+esc(p.age)+' (idade aproximada) · porte '+esc(p.porte.toLowerCase())+'</p>'
+        +'<div style="margin:10px 0"><img src="assets/animais/'+p.img+'" alt="'+esc(p.name)+'" style="width:100%;max-height:240px;object-fit:cover;border-radius:14px"></div>'
+        +'<span class="chip">✓ Castração confirmada pela ONG</span>'
+        +'<h4>História e convivência</h4><p>'+esc(p.story)+'</p><dl><dt>Com cães</dt><dd>'+conv('caes')+'</dd><dt>Com gatos</dt><dd>'+conv('gatos')+'</dd><dt>Com crianças</dt><dd>'+conv('criancas')+'</dd></dl>'
+        +'<h4>Cuidados</h4><p>'+esc(p.care)+'</p><p>'+esc(p.vac)+'</p>'
+        +'<h4>Responsável</h4><p>'+esc(p.ong)+' · '+esc(p.city)+'</p>'
+        +'<h4>Processo</h4><p>Condições e etapas definidas pela ONG. Última atualização: '+p.upd+'.</p>'
+        +'<div class="note">A ONG pode analisar mais de uma solicitação. Enviar interesse não reserva o animal. Você poderá acompanhar seu pedido e receberá notificações sobre o andamento.</div>'
+        +'<div class="dlg-actions"><button class="dlg-btn" id="p-interest">Tenho interesse em adotar</button><button class="dlg-btn alt" id="p-fav">'+(fav?'Remover dos favoritos':'Salvar nos favoritos')+'</button><button class="dlg-btn alt" data-close>Voltar aos resultados</button></div><div id="p-msg"></div>');
+      $('p-fav').onclick=()=>{const on=toggleFav(id);$('p-fav').textContent=on?'Remover dos favoritos':'Salvar nos favoritos'};
+      $('p-interest').onclick=()=>{$('p-msg').innerHTML='<div class="note">O formulário de interesse não faz parte do percurso testado nesta entrega, então nenhum pedido foi enviado. No produto, ele exige entrar na conta, revisar as respostas e confirmar o envio.</div>'};
+    }
+    document.querySelectorAll('.know').forEach(b=>b.addEventListener('click',()=>profile(b.closest('.pet-card').dataset.id)));
+    document.querySelectorAll('.pet-image img').forEach(i=>i.addEventListener('click',()=>profile(i.closest('.pet-card').dataset.id)));
+    syncHearts();apply();
+    const themeKey='pet-link-theme',themeToggleButtons=document.querySelectorAll('[data-theme-toggle]');
+    function setTheme(theme){document.documentElement.dataset.theme=theme;localStorage.setItem(themeKey,theme);themeToggleButtons.forEach(button=>{button.textContent=theme==='dark'?'☀':'☾';button.setAttribute('aria-label',theme==='dark'?'Ativar tema claro':'Ativar tema escuro');button.title=theme==='dark'?'Ativar tema claro':'Ativar tema escuro'})}
+    setTheme(localStorage.getItem(themeKey)||'light');
+    themeToggleButtons.forEach(button=>button.addEventListener('click',()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark')));
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa do site — Petlink</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:920px;margin:32px auto;padding:0 18px;line-height:1.55;color:#241d2b}
+h1{margin-bottom:4px} h2{margin-top:34px;border-bottom:2px solid #e4efdf;padding-bottom:4px}
+ul{padding-left:20px} code{background:#f1f3ee;padding:1px 5px;border-radius:4px;font-size:.9em}
+.t{font-size:11px;font-weight:700;border-radius:999px;padding:2px 9px;white-space:nowrap}
+.ea{background:#fff3d5;color:#876a22} .sp{background:#e6f2e7;color:#2f6a3d} .ad{background:#eaf1fb;color:#38577d}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0} .note{background:#f6f8f3;border-radius:10px;padding:10px 14px;font-size:14px}
+</style>
+</head>
+<body>
+<h1>Mapa do site — Petlink</h1>
+<p>Plataforma de adoção responsável de cães e gatos, avisos de perdidos e encontrados, painel da ONG e catálogo de parceiros com benefícios para carteirinha com registro conferido.</p>
+<div class="legend"><b>Legenda:</b><span class="t ea">Existente a ajustar</span><span class="t sp">Selecionado para prototipar</span><span class="t ad">Apenas documentado</span></div>
+
+<h2>1. Início e adoção (<code>home.html</code>)</h2>
+<ul>
+<li>Cabeçalho: Adotar, Perdidos e encontrados, Catálogo de parceiros, Nossa causa, Sou uma ONG, Quero adotar, tema claro/escuro <span class="t ea">Existente a ajustar</span></li>
+<li>Busca com filtros: município e UF, espécie (cão ou gato), porte, faixa etária; em Mais filtros: sexo, convivência, cuidados específicos e ONG. Quantidade de resultados e ausência de resultados <span class="t sp">Selecionado para prototipar</span></li>
+<li>Lista de animais (apenas cães e gatos, todos com castração confirmada pela ONG, sem filtro de castração; convivência desconhecida aparece como Não avaliado) <span class="t ea">Existente a ajustar</span></li>
+<li>Perfil do animal e da ONG (janela na própria página), com Voltar aos resultados preservando a busca <span class="t sp">Selecionado para prototipar</span></li>
+<li>Favoritos mantidos durante a sessão e Ver salvos <span class="t sp">Selecionado para prototipar</span></li>
+<li>Enviar interesse (entrar ou cadastrar, revisar respostas, confirmar envio) e acompanhar o pedido; interesse e entrevista não reservam o animal; após a escolha da ONG, novos envios são bloqueados com explicação <span class="t ad">Apenas documentado</span></li>
+<li>Nossa causa e Como funciona (busca, conhecer, interesse, entrevista, escolha e entrega) <span class="t ea">Existente a ajustar</span></li>
+</ul>
+
+<h2>2. Adotante e tutor</h2>
+<ul>
+<li>Entrada e cadastro <span class="t ad">Apenas documentado</span></li><li>Favoritos <span class="t sp">Selecionado para prototipar</span></li><li>Minhas solicitações <span class="t ad">Apenas documentado</span></li><li>Meus pets e carteirinha de vacinação (documentos enviados pelo tutor ou pela ONG) <span class="t ad">Apenas documentado</span></li>
+<li>Benefícios disponíveis a partir da carteirinha (exibido no catálogo apenas como exemplo) <span class="t ad">Apenas documentado</span></li><li>Meus avisos de perdidos e encontrados <span class="t ad">Apenas documentado</span></li><li>Conta <span class="t ad">Apenas documentado</span></li>
+</ul>
+
+<h2>3. Perdidos e encontrados (<code>pets-perdidos.html</code>)</h2>
+<ul>
+<li>Lista de avisos ativos: Perdido, Avistado e Encontrado, com filtros por tipo, espécie, cor, município ou bairro e acolhimento <span class="t ea">Existente a ajustar</span></li>
+<li>Publicar aviso: campos separados (espécie cão ou gato, cor, padrão, raça, porte, sexo, município, bairro, data, horário, acolhimento, foto opcional), nome opcional (Nome não informado) e foto ausente como Foto não disponível <span class="t sp">Selecionado para prototipar</span></li>
+<li>Relatos vinculados à mesma ocorrência (Avistei este animal) e contato pela conta, mostrando só o primeiro nome <span class="t sp">Selecionado para prototipar</span></li>
+<li>Meu pet voltou, Registrar devolução e Atualizar acolhimento <span class="t sp">Selecionado para prototipar</span></li>
+<li>Acolhimento por pessoa ou ONG, sem obrigação automática; vários avisos para o mesmo animal; vínculo entre publicações independentes exige confirmação; tutor identificado é notificado e confirma o reencontro uma vez <span class="t ad">Apenas documentado</span></li>
+<li>Arquivamento individual: pedido de confirmação após 30 dias sem atualização e arquivamento após mais 15 dias sem resposta; arquivar não significa reencontro; microchip só após leitura presencial <span class="t ad">Apenas documentado</span></li>
+</ul>
+
+<h2>4. Catálogo de parceiros (<code>marketplace.html</code>)</h2>
+<ul>
+<li>Busca, categorias (Atendimento veterinário, Banho e tosa, Cuidados e hospedagem, Comportamento e educação, Alimentação, Higiene, Acessórios), espécie, município ou região e ordenação <span class="t ea">Existente a ajustar</span></li>
+<li>Ver benefícios disponíveis (filtro de ofertas com benefício para carteirinha conferida) <span class="t ea">Existente a ajustar</span></li>
+<li>Detalhes de produtos e serviços: parceiro, área, preço de exemplo, validade, restrições e registros exigidos <span class="t sp">Selecionado para prototipar</span></li>
+<li>Aviso de saída e Ir para o parceiro. Atendimento, agendamento, contratação, pagamento e aplicação do benefício são externos; copiar código ou abrir link não confirma o uso <span class="t sp">Selecionado para prototipar</span></li>
+<li>Sem carrinho, compra interna, pontos ou selo geral de Vacinação em dia <span class="t ea">Existente a ajustar</span></li>
+<li>Cadastro de parceiro <span class="t ad">Apenas documentado</span></li><li>Área do parceiro: perfil, anúncios, ofertas e links <span class="t ad">Apenas documentado</span></li>
+<li>Conferência de carteirinhas, apenas como função adicional de veterinário autorizado <span class="t ad">Apenas documentado</span></li>
+</ul>
+
+<h2>5. Painel da ONG (<code>ong.html</code>)</h2>
+<ul>
+<li>Entrada demonstrativa (identificada na tela) <span class="t ea">Existente a ajustar</span></li><li>Cadastro e entrada da ONG <span class="t ad">Apenas documentado</span></li>
+<li>Visão geral com dados demonstrativos consistentes (Instituto Patinhas Felizes, Bruno Júnior, animais Bento, Mel e Fred) <span class="t ea">Existente a ajustar</span></li>
+<li>Meus animais: filtro por Rascunho, Disponível, Em processo de adoção, Adotado e Anúncio pausado <span class="t ea">Existente a ajustar</span></li>
+<li>Cadastrar animal: rascunho permitido; publicar exige Castrado confirmado pela ONG <span class="t sp">Selecionado para prototipar</span></li>
+<li>Solicitações de adoção: abrir solicitação, conversar e iniciar análise (Enviada para Em análise) <span class="t sp">Selecionado para prototipar</span></li>
+<li>Pedido de complemento, entrevista, aprovação, espera por outro processo e conclusão. Novos interesses seguem permitidos durante entrevistas; após a escolha o animal fica Em processo de adoção, demais candidatos são notificados sem exposição de dados; a adoção só conclui após entrega e confirmação do adotante; triagem não gera nota nem ranking <span class="t ad">Apenas documentado</span></li>
+<li>Documentos de vacinação: a ONG inclui e compartilha; a conferência é do veterinário parceiro <span class="t ad">Apenas documentado</span></li>
+<li>Perfil da ONG, notificações e central de ajuda <span class="t ad">Apenas documentado</span></li>
+<li>Perdidos e encontrados (link para a página pública) <span class="t ea">Existente a ajustar</span></li>
+</ul>
+
+</body>
+</html>

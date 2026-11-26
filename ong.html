@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff">
+  <title>Painel da ONG — Petlink</title>
+  <style>
+    :root{--ink:#241d2b;--muted:#718078;--green:#3f7652;--green-dark:#1f3526;--pale:#e4efdf;--cream:#fffdf6;--white:#fff;--line:#e8e9e1;--orange:#f4c430;--yellow:#f5d989;--shadow:0 12px 38px #23382b0d}
+    *{box-sizing:border-box}body{margin:0;background:#fffdf6;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:grid;grid-template-columns:248px 1fr}.sidebar{background:var(--green);color:#fff;padding:25px 17px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;justify-content:center;width:100%;padding:0 0 18px}.logo-image{display:block;width:132px;height:96px;object-fit:contain;object-position:center}.org-switch{display:flex;gap:10px;align-items:center;padding:11px;background:#ffffff10;border:1px solid #ffffff17;border-radius:14px;margin-bottom:24px}.org-avatar-img{width:36px;height:36px;border-radius:12px;object-fit:cover;flex:none}.org-switch strong{display:block;font-size:11px}.org-switch small{font-size:10px;color:#c1d0c4}.switch-arrow{margin-left:auto;color:#c1d0c4}.nav-label{font-size:9px;color:#9db4a4;letter-spacing:1.2px;font-weight:800;padding:0 12px;margin-bottom:9px}.side-nav{display:grid;gap:5px}.side-nav a{padding:11px 12px;border-radius:11px;color:#cedbd0;font-size:12px;font-weight:650;display:flex;align-items:center;gap:12px}.side-nav a:hover,.side-nav a.active{background:#ffffff16;color:#fff}.side-nav a.active{box-shadow:inset 3px 0 #f4c430}.side-bottom{margin-top:auto}.help-box{background:#ffffff10;border-radius:15px;padding:14px;margin:16px 3px}.help-box b{font-size:11px}.help-box p{font-size:10px;line-height:1.55;color:#c5d4c8;margin:6px 0 10px}.help-box a{font-size:10px;color:#f4c430;font-weight:750}.profile{border-top:1px solid #ffffff1d;padding:15px 5px 0;display:flex;gap:9px;align-items:center}.profile-img{width:34px;height:34px;border-radius:50%;object-fit:cover;flex:none}.profile strong{display:block;font-size:11px}.profile small{font-size:9px;color:#bdcdbf}
+    .main{min-width:0}.topbar{height:72px;background:#ffffffd9;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 38px;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}.crumb{font-size:11px;color:#89948c}.crumb b{color:var(--ink)}.top-actions{display:flex;align-items:center;gap:14px}.icon-button{border:0;background:#f4f5f1;width:35px;height:35px;border-radius:11px;color:#54635a;position:relative}.badge-dot{position:absolute;right:6px;top:5px;width:7px;height:7px;background:var(--orange);border:1px solid white;border-radius:50%}.top-org{display:flex;align-items:center;gap:8px;border-left:1px solid var(--line);padding-left:14px;font-size:11px;font-weight:700}.top-org img{height:30px;width:30px;object-fit:cover;border-radius:10px}.theme-toggle{width:35px;height:35px;border:1px solid var(--line);border-radius:50%;background:var(--white);color:var(--green);font-size:17px;display:grid;place-items:center;flex:none}
+    .content{width:min(1120px,calc(100% - 76px));margin:30px auto 60px}.welcome{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px}.welcome h1{font-size:28px;letter-spacing:-1.1px;margin:0 0 5px}.welcome p{margin:0;color:var(--muted);font-size:12px}.btn{border:0;border-radius:10px;padding:11px 15px;font-size:11px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:.2s}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--green);color:white}.btn-primary:hover{background:var(--green-dark)}.btn-soft{background:var(--pale);color:var(--green)}.btn-white{background:white;color:var(--ink);border:1px solid var(--line)}
+    .vaccine-notice{background:var(--pale);border:1px solid #c9dec0;border-radius:14px;padding:12px 16px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;color:#244934}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:21px}.stat-card{background:white;border:1px solid var(--line);border-radius:16px;padding:17px;box-shadow:0 4px 14px #241d2b04}.stat-top{display:flex;justify-content:space-between;align-items:center;color:#6e7d73;font-size:10px;font-weight:650}.stat-icon{width:30px;height:30px;display:grid;place-items:center;border-radius:10px;background:#fbeb94;font-size:14px}.stat-number{font-size:27px;letter-spacing:-1px;font-weight:800;margin:11px 0 4px}.stat-foot{font-size:9px;color:#859188}.up{color:#47825c;font-weight:800}
+    .dashboard-grid{display:grid;grid-template-columns:1.45fr .85fr;gap:16px}.panel{background:white;border:1px solid var(--line);border-radius:17px;box-shadow:0 4px 14px #241d2b04;min-width:0}.panel-head{padding:17px 18px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #f0f1eb}.panel-head h2{font-size:14px;margin:0;letter-spacing:-.2px}.panel-head p{font-size:10px;color:var(--muted);margin:5px 0 0}.plain-link{border:0;background:none;color:var(--green);font-size:10px;font-weight:750}
+    .proposals{padding:0 18px}.proposal{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid #f0f1eb}.proposal:last-child{border-bottom:0}.avatar-img{height:40px;width:40px;border-radius:13px;object-fit:cover}.proposal h3{font-size:11px;margin:0 0 4px}.proposal p{font-size:9px;color:var(--muted);margin:0}.proposal p b{color:#4e5c53}.status{display:inline-block;border-radius:999px;padding:5px 8px;font-size:8px;font-weight:750;white-space:nowrap}.status.new{background:#fff3d5;color:#876a22}.status.review{background:#eaf1fb;color:#537297}.status.ok{background:#e6f2e7;color:#4d7b52}.proposal-actions{grid-column:2/-1;display:flex;gap:7px;margin-top:-3px}.proposal-actions .btn{padding:7px 10px;font-size:9px}
+    .activity{padding:5px 18px 14px}.activity-row{display:grid;grid-template-columns:27px 1fr;gap:10px;padding:12px 0;position:relative}.activity-row:not(:last-child):before{content:"";position:absolute;left:13px;top:38px;bottom:-9px;border-left:1px solid #e9ede6}.activity-icon{height:27px;width:27px;border-radius:9px;display:grid;place-items:center;background:#fbeb94;font-size:12px;z-index:1}.activity-row p{font-size:10px;line-height:1.5;margin:0;color:#5d6b61}.activity-row b{color:var(--ink)}.activity-row small{display:block;color:#98a199;font-size:9px;margin-top:4px}
+    .animals-panel{margin-top:16px}.animal-tools{display:flex;align-items:center;gap:8px}.filter-select{padding:8px 10px;border:1px solid var(--line);border-radius:9px;color:#5f6d63;font-size:10px;background:white}.animal-list{padding:0 18px}.animal-row{display:grid;grid-template-columns:46px minmax(115px,1fr) 90px 90px 100px auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #f0f1eb}.animal-row:last-child{border:0}.animal-pic-img{width:44px;height:44px;border-radius:12px;object-fit:cover}.animal-name b{font-size:11px;display:block}.animal-name small,.table-cell small{font-size:9px;color:#8a958d}.table-cell{font-size:10px;color:#59675d}.table-cell b{display:block;font-size:10px;color:var(--ink);margin-bottom:3px}.row-menu{border:0;background:none;font-size:17px;color:#78867c}.empty{padding:22px;color:var(--muted);text-align:center;font-size:11px;display:none}
+    .toast{position:fixed;bottom:22px;right:24px;background:var(--ink);color:white;padding:12px 17px;border-radius:11px;font-size:11px;box-shadow:var(--shadow);opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s;z-index:20}.toast.show{opacity:1;transform:none}.mobile-menu{display:none}
+    html[data-theme="dark"]{color-scheme:dark;--ink:#f6f1fa;--muted:#bdb2c9;--cream:#17141b;--white:#202820;--line:#354337;--pale:#263d2e;--shadow:0 14px 38px #0005}html[data-theme="dark"] body{background:#17141b;color:var(--ink)}html[data-theme="dark"] .topbar{background:#17141beF;border-color:#354337}html[data-theme="dark"] .panel,html[data-theme="dark"] .stat-card{background:#202820;border-color:#354337}html[data-theme="dark"] .vaccine-notice{background:#263d2e;border-color:#354337;color:#e5f0e5}
+    @media(max-width:760px){.app{display:block}.sidebar{position:fixed;z-index:12;left:-260px;width:248px;transition:left .25s}.sidebar.open{left:0}.mobile-menu{display:block;border:0;background:none;font-size:21px;color:var(--ink);margin-right:9px}.topbar{height:62px;padding:0 17px;justify-content:flex-start}.crumb{flex:1}.top-org{display:none}.content{width:calc(100% - 34px);margin:23px auto 45px}.stats{grid-template-columns:1fr 1fr}.dashboard-grid{grid-template-columns:1fr}.animal-row{grid-template-columns:42px 1fr auto}.animal-row .table-cell{display:none!important}}
+  
+    .dlg-back{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;padding:18px;z-index:60}
+    .dlg-back.open{display:flex}
+    .dlg{background:var(--white);color:var(--ink);border-radius:20px;max-width:640px;width:100%;max-height:90vh;overflow:auto;padding:26px 28px;box-shadow:0 30px 80px #0006;position:relative}
+    .dlg h2{margin:0 0 4px;font-size:22px;letter-spacing:-.5px;padding-right:28px}
+    .dlg h4{margin:18px 0 6px;font-size:13px}
+    .dlg p,.dlg li,.dlg dd{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 6px}
+    .dlg ul{margin:0;padding-left:18px}
+    .dlg dl{margin:0;display:grid;grid-template-columns:150px 1fr;gap:6px 14px}
+    .dlg dt{font-size:12px;font-weight:750;color:var(--ink)}
+    .dlg dd{margin:0}
+    .dlg-x{position:absolute;top:12px;right:16px;border:0;background:transparent;font-size:26px;line-height:1;color:var(--muted);cursor:pointer}
+    .dlg-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .dlg .note{background:var(--pale,#e4efdf);border-radius:12px;padding:10px 13px;font-size:12px;line-height:1.55;color:var(--ink);margin:12px 0 0}
+    .dlg label{display:block;font-size:12px;font-weight:750;margin:12px 0 5px;color:var(--ink)}
+    .dlg input,.dlg select,.dlg textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink);font:inherit;font-size:13px}
+    .dlg textarea{min-height:84px;resize:vertical}
+    .dlg .err{color:#b3261e;font-size:12px;margin-top:10px;display:none}
+    .dlg .err.show{display:block}
+    .dlg .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .dlg-btn{border:0;border-radius:999px;padding:11px 18px;font-weight:750;font-size:13px;cursor:pointer;background:var(--green);color:#fff}
+    .dlg-btn.alt{background:transparent;border:1px solid var(--line);color:var(--ink)}
+    .chip{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:750;background:var(--pale,#e4efdf);color:var(--green)}
+    .demo-note{font-size:12px;color:var(--muted);margin:0 0 18px}
+    @media(max-width:600px){.dlg dl{grid-template-columns:1fr}.dlg .two{grid-template-columns:1fr}}
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <a href="home.html" class="brand"><img class="logo-image" src="assets/logo/logo-branco-sem-fundo.png" alt="Petlink"></a>
+      <div class="org-switch">
+        <img class="org-avatar-img" src="assets/animais/cachorro1.webp" alt="Logo Instituto Patinhas Felizes">
+        <span><strong>Instituto Patinhas Felizes</strong><small>Perfil da organização</small></span>
+      </div>
+      <div class="nav-label">MENU PRINCIPAL</div>
+      <nav class="side-nav" aria-label="Menu da organização">
+        <a class="active" href="#dashboard">Visão geral</a>
+        <a href="#animais">Meus animais <span id="nav-animals" style="margin-left:auto;font-size:9px">3</span></a>
+        <a href="#propostas">Solicitações de adoção <span style="margin-left:auto;background:#f4c430;color:#294a37;border-radius:20px;padding:3px 7px;font-size:9px">3</span></a>
+        <a href="pets-perdidos.html">Perdidos e encontrados</a>
+      </nav>
+      <div class="nav-label" style="margin-top:24px">ORGANIZAÇÃO</div>
+      <nav class="side-nav"><a href="#" id="org-profile">Perfil da ONG</a><a href="home.html">Ver vitrine pública</a><a href="#" id="help">Central de ajuda</a></nav>
+      <div class="side-bottom">
+        <div class="help-box">
+          <b>Documentos de vacinação</b>
+          <p>A ONG inclui e compartilha os documentos do animal. A conferência é feita por veterinário parceiro, não pela ONG.</p>
+        </div>
+        <div class="profile">
+          <img class="profile-img" src="assets/user/bruno.jpg" alt="Bruno Júnior">
+          <span><strong>Bruno Júnior</strong><small>Administrador</small></span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main" id="dashboard">
+      <div class="topbar">
+        <button class="mobile-menu" id="menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+        <div class="crumb">Petlink <span style="margin:0 7px">/</span> <b>Visão geral</b></div>
+        <div class="top-actions">
+          <button class="theme-toggle" data-theme-toggle aria-label="Alternar tema claro ou escuro" title="Alternar tema">☾</button>
+          <button class="icon-button" id="notifications" aria-label="Notificações">🔔<span class="badge-dot"></span></button>
+          <div class="top-org"><img src="assets/animais/cachorro1.webp" alt="Instituto Patinhas Felizes"> Instituto Patinhas Felizes</div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="vaccine-notice" style="margin-bottom:16px">
+          <span>🧪 <strong>Acesso demonstrativo:</strong> cadastro e entrada da ONG não fazem parte do percurso testado. Pessoas, animais e números abaixo são exemplos.</span>
+        </div>
+
+        <section class="welcome">
+          <div><h1>Bom dia, Bruno ☀️</h1><p>Acompanhe solicitações, entrevistas e animais da sua ONG.</p></div>
+          <button class="btn btn-primary" id="add-animal" type="button">＋ Cadastrar animal</button>
+        </section>
+
+        <div class="vaccine-notice">
+          <span>🩺 <strong>Documentos de vacinação:</strong> inclua os comprovantes de cada animal e compartilhe no processo de adoção. Quem confere o registro é um veterinário parceiro; benefícios são oferecidos pelos estabelecimentos participantes, conforme as condições de cada oferta.</span>
+        </div>
+
+        <section class="stats" aria-label="Resumo da organização">
+          <article class="stat-card"><div class="stat-top">Animais cadastrados <span class="stat-icon">🐾</span></div><div class="stat-number" id="st-animals">3</div><div class="stat-foot">1 disponível, 1 em processo, 1 adotado</div></article>
+          <article class="stat-card"><div class="stat-top">Solicitações em andamento <span class="stat-icon">💌</span></div><div class="stat-number" id="st-reqs">3</div><div class="stat-foot" id="st-reqs-foot">1 aguardando análise</div></article>
+          <article class="stat-card"><div class="stat-top">Adoções concluídas <span class="stat-icon">🏡</span></div><div class="stat-number">1</div><div class="stat-foot">após confirmação do adotante</div></article>
+          <article class="stat-card"><div class="stat-top">Visitas aos anúncios <span class="stat-icon">◉</span></div><div class="stat-number">344</div><div class="stat-foot">soma dos animais cadastrados</div></article>
+        </section>
+
+        <div class="dashboard-grid">
+          <section class="panel" id="propostas">
+            <div class="panel-head"><div><h2>Solicitações de adoção</h2><p>Pessoas interessadas nos animais da ONG. Novos interesses continuam possíveis até a escolha.</p></div></div>
+            <div class="proposals">
+              <article class="proposal" data-id="r1">
+                <img class="avatar-img" src="assets/adotantes/pessoa1.jpg" alt="Marcos Henrique">
+                <div><h3>Marcos Henrique <span style="color:#99a39a;font-weight:500">· solicitou adotar</span> <b>Bento</b></h3><p>São Paulo, SP · Apartamento com varanda</p></div>
+                <span class="status new" data-status>Enviada — aguardando análise</span>
+                <div class="proposal-actions"><button class="btn btn-soft open-req" type="button">Abrir solicitação</button><button class="btn btn-white open-chat" type="button">Conversar</button></div>
+              </article>
+              <article class="proposal" data-id="r2">
+                <img class="avatar-img" src="assets/adotantes/pessoa2.jpg" alt="Rafaela Mendes">
+                <div><h3>Rafaela Mendes <span style="color:#99a39a;font-weight:500">· solicitou adotar</span> <b>Bento</b></h3><p>Osasco, SP · Casa com quintal</p></div>
+                <span class="status review" data-status>Em análise</span>
+                <div class="proposal-actions"><button class="btn btn-soft open-req" type="button">Abrir solicitação</button><button class="btn btn-white open-chat" type="button">Conversar</button></div>
+              </article>
+              <article class="proposal" data-id="r3">
+                <img class="avatar-img" src="assets/adotantes/pessoa3.jpg" alt="Carlos Alberto">
+                <div><h3>Carlos Alberto <span style="color:#99a39a;font-weight:500">· solicitou adotar</span> <b>Mel</b></h3><p>São Paulo, SP · Casa com crianças</p></div>
+                <span class="status ok" data-status>Aprovada para adoção</span>
+                <div class="proposal-actions"><button class="btn btn-soft open-req" type="button">Abrir solicitação</button><button class="btn btn-white open-chat" type="button">Conversar</button></div>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><div><h2>Atividade recente</h2><p>Novidades da sua página.</p></div></div>
+            <div class="activity" id="activity">
+              <div class="activity-row"><span class="activity-icon">💌</span><div><p><b>Marcos Henrique</b> enviou uma solicitação para adotar <b>Bento</b>.</p><small>Há 18 minutos</small></div></div>
+              <div class="activity-row"><span class="activity-icon">📄</span><div><p>Documentos de vacinação de <b>Bento</b> incluídos pela ONG, ainda sem conferência.</p><small>Há 2 horas</small></div></div>
+              <div class="activity-row"><span class="activity-icon">🏡</span><div><p>Adoção de <b>Fred</b> concluída após a confirmação do adotante.</p><small>Ontem, às 16:42</small></div></div>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel animals-panel" id="animais">
+          <div class="panel-head">
+            <div><h2>Seus animais</h2><p>Gerencie os perfis e a situação de cada animal.</p></div>
+            <div class="animal-tools">
+              <select class="filter-select" id="animal-filter" aria-label="Filtrar animais por situação">
+                <option value="all">Todos</option>
+                <option>Rascunho</option><option>Disponível</option><option>Em processo de adoção</option><option>Adotado</option><option>Anúncio pausado</option>
+              </select>
+            </div>
+          </div>
+          <div class="animal-list" id="animal-list">
+            <article class="animal-row" data-status="Disponível"><img class="animal-pic-img" src="assets/animais/cachorro1.webp" alt="Bento"><div class="animal-name"><b>Bento</b><small>Cachorro · 2 anos</small></div><div class="table-cell"><b>Disponível</b><small>Publicado há 12 dias</small></div><div class="table-cell"><b>2 solicitações</b><small>1 enviada, 1 em análise</small></div><div class="table-cell"><b>206 visitas</b><small>Castração: Castrado</small></div><span class="status ok">Disponível</span><button class="row-menu" type="button" aria-label="Mais opções para Bento">⋯</button></article>
+            <article class="animal-row" data-status="Em processo de adoção"><img class="animal-pic-img" src="assets/animais/mel.jpg" alt="Mel"><div class="animal-name"><b>Mel</b><small>Cachorra · 5 meses</small></div><div class="table-cell"><b>Em processo de adoção</b><small>Publicada há 20 dias</small></div><div class="table-cell"><b>1 solicitação</b><small>1 aprovada para adoção</small></div><div class="table-cell"><b>97 visitas</b><small>Castração: Castrado</small></div><span class="status review">Em processo de adoção</span><button class="row-menu" type="button" aria-label="Mais opções para Mel">⋯</button></article>
+            <article class="animal-row" data-status="Adotado"><img class="animal-pic-img" src="assets/animais/fred.jpg" alt="Fred"><div class="animal-name"><b>Fred</b><small>Cachorro · 3 anos</small></div><div class="table-cell"><b>Adotado</b><small>Adoção concluída ontem</small></div><div class="table-cell"><b>1 solicitação</b><small>concluída</small></div><div class="table-cell"><b>41 visitas</b><small>Castração: Castrado</small></div><span class="status ok">Adotado</span><button class="row-menu" type="button" aria-label="Mais opções para Fred">⋯</button></article>
+            <div class="empty" id="empty-state">Nenhum animal nesta situação.</div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script>
+    const REQS=[{"id": "r1", "who": "Marcos Henrique", "pet": "Bento", "img": "assets/adotantes/pessoa1.jpg", "place": "São Paulo, SP · Apartamento com varanda", "status": "Enviada — aguardando análise", "cls": "new", "answers": {"Moradia": "Apartamento com varanda telada", "Rotina": "Trabalha em casa três dias por semana", "Outros animais": "Nenhum no momento", "Experiência": "Já teve um cão"}}, {"id": "r2", "who": "Rafaela Mendes", "pet": "Bento", "img": "assets/adotantes/pessoa2.jpg", "place": "Osasco, SP · Casa com quintal", "status": "Em análise", "cls": "review", "answers": {"Moradia": "Casa com quintal murado", "Rotina": "Família em casa na maior parte do dia", "Outros animais": "Uma gata adulta", "Experiência": "Já adotou duas vezes"}}, {"id": "r3", "who": "Carlos Alberto", "pet": "Mel", "img": "assets/adotantes/pessoa3.jpg", "place": "São Paulo, SP · Casa com crianças", "status": "Aprovada para adoção", "cls": "ok", "answers": {"Moradia": "Casa com quintal", "Rotina": "Duas crianças e um adulto em casa", "Outros animais": "Nenhum", "Experiência": "Primeira adoção"}}];
+
+    const $=id=>document.getElementById(id);
+    const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+    function dlg(html){let b=$('dlg-back');if(!b){b=document.createElement('div');b.id='dlg-back';b.className='dlg-back';b.innerHTML='<div class="dlg" role="dialog" aria-modal="true"><button class="dlg-x" aria-label="Fechar" data-close>×</button><div id="dlg-body"></div></div>';document.body.appendChild(b);b.addEventListener('click',e=>{if(e.target===b||e.target.closest('[data-close]'))closeDlg()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDlg()})}$('dlg-body').innerHTML=html;b.classList.add('open');return $('dlg-body')}
+    function closeDlg(){const b=$('dlg-back');if(b)b.classList.remove('open')}
+
+    let toastTimer;
+    function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3200)}
+    $('menu').addEventListener('click',()=>{const o=$('sidebar').classList.toggle('open');$('menu').setAttribute('aria-expanded',o)});
+    $('notifications').addEventListener('click',()=>toast('Você tem 1 solicitação nova aguardando análise'));
+    $('org-profile').addEventListener('click',e=>{e.preventDefault();toast('Perfil da ONG: documentado no mapa, fora do percurso testado')});
+    $('help').addEventListener('click',e=>{e.preventDefault();toast('Central de ajuda: fora do percurso testado')});
+    document.querySelectorAll('.row-menu').forEach(b=>b.addEventListener('click',()=>toast('Opções do animal: fora do percurso testado')));
+
+    function applyFilter(){const v=$('animal-filter').value;let n=0;document.querySelectorAll('.animal-row').forEach(r=>{const ok=v==='all'||r.dataset.status===v;r.style.display=ok?'':'none';if(ok)n++});$('empty-state').style.display=n?'none':'block'}
+    $('animal-filter').addEventListener('change',applyFilter);
+
+    function counts(){const rows=[...document.querySelectorAll('.animal-row')];$('st-animals').textContent=rows.length;$('nav-animals').textContent=rows.length}
+    function addRow(a){
+      const cls=a.status==='Disponível'?'ok':'new';
+      const el=document.createElement('article');el.className='animal-row';el.dataset.status=a.status;
+      el.innerHTML='<div class="animal-pic-img" style="display:grid;place-items:center;background:var(--pale);color:var(--green);font-weight:800">'+esc(a.name[0].toUpperCase())+'</div><div class="animal-name"><b>'+esc(a.name)+'</b><small>'+esc(a.species)+' · '+esc(a.age)+'</small></div><div class="table-cell"><b>'+esc(a.status)+'</b><small>'+(a.status==='Rascunho'?'Ainda não publicado':'Publicado agora')+'</small></div><div class="table-cell"><b>0 solicitações</b><small>—</small></div><div class="table-cell"><b>0 visitas</b><small>Castração: '+esc(a.cast)+'</small></div><span class="status '+cls+'">'+esc(a.status)+'</span><button class="row-menu" type="button" aria-label="Mais opções">⋯</button>';
+      $('animal-list').insertBefore(el,$('empty-state'));el.querySelector('.row-menu').addEventListener('click',()=>toast('Opções do animal: fora do percurso testado'));counts();applyFilter();
+    }
+    $('add-animal').addEventListener('click',()=>{
+      dlg('<h2>Cadastrar animal</h2><p>Preencha os dados do animal. Para publicar para adoção, a castração precisa estar confirmada pela ONG.</p>'
+       +'<label for="a-name">Nome</label><input id="a-name">'
+       +'<div class="two"><div><label for="a-sp">Espécie</label><select id="a-sp"><option>Cachorro</option><option>Gato</option></select></div><div><label for="a-sex">Sexo</label><select id="a-sex"><option>Macho</option><option>Fêmea</option></select></div></div>'
+       +'<div class="two"><div><label for="a-size">Porte</label><select id="a-size"><option>Pequeno</option><option>Médio</option><option>Grande</option></select></div><div><label for="a-age">Idade aproximada</label><input id="a-age" placeholder="Ex.: 2 anos"></div></div>'
+       +'<label for="a-cast">Castração</label><select id="a-cast"><option value="">Selecione</option><option>Castrado</option><option>Não castrado</option><option>Não confirmado</option></select>'
+       +'<div class="err" id="a-err" role="alert"></div>'
+       +'<div class="dlg-actions"><button class="dlg-btn" id="a-pub" type="button">Publicar para adoção</button><button class="dlg-btn alt" id="a-draft" type="button">Salvar rascunho</button><button class="dlg-btn alt" data-close type="button">Cancelar</button></div>');
+      const read=()=>({name:$('a-name').value.trim(),species:$('a-sp').value,age:$('a-age').value.trim()||'idade não informada',cast:$('a-cast').value||'Não confirmado'});
+      const err=m=>{const e=$('a-err');e.textContent=m;e.classList.add('show')};
+      $('a-draft').onclick=()=>{const a=read();if(!a.name){err('Informe o nome do animal para salvar o rascunho.');return}a.status='Rascunho';addRow(a);closeDlg();toast('Rascunho salvo. O animal não aparece na vitrine.')};
+      $('a-pub').onclick=()=>{const a=read();if(!a.name||!$('a-age').value.trim()){err('Informe nome e idade aproximada para publicar.');return}if(a.cast!=='Castrado'){err('Para disponibilizar este animal para adoção, é necessário confirmar que ele está castrado. Você pode salvar como rascunho.');return}a.status='Disponível';addRow(a);closeDlg();toast('Animal publicado como Disponível (exemplo desta sessão)')};
+    });
+
+    function reqDlg(id,focusChat){
+      const r=REQS.find(x=>x.id===id);const card=document.querySelector('.proposal[data-id="'+id+'"]');
+      const st=card.querySelector('[data-status]').textContent;
+      dlg('<h2>'+esc(r.who)+'</h2><p>Solicitação para adotar <b>'+esc(r.pet)+'</b> · '+esc(r.place)+'</p><p>Situação: <b id="r-st">'+esc(st)+'</b></p>'
+        +'<h4>Respostas compartilhadas neste processo</h4><dl>'+Object.entries(r.answers).map(([k,v])=>'<dt>'+esc(k)+'</dt><dd>'+esc(v)+'</dd>').join('')+'</dl>'
+        +'<div class="note">A triagem não gera nota, ranking nem reputação permanente. A entrevista não reserva o animal.</div>'
+        +'<h4>Conversa</h4><div id="chat" style="font-size:13px;color:var(--muted)">Nenhuma mensagem nesta solicitação.</div>'
+        +'<label for="msg">Mensagem</label><textarea id="msg" placeholder="Escreva para '+esc(r.who.split(' ')[0])+'"></textarea>'
+        +'<div class="dlg-actions"><button class="dlg-btn" id="send" type="button">Enviar mensagem</button>'+(st.startsWith('Enviada')?'<button class="dlg-btn alt" id="start" type="button">Iniciar análise</button>':'')+'<button class="dlg-btn alt" data-close type="button">Fechar</button></div>'
+        +'<p style="margin-top:12px">Pedido de complemento, entrevista, escolha e conclusão estão documentados no mapa e não fazem parte do percurso testado.</p>');
+      $('send').onclick=()=>{const t=$('msg').value.trim();if(!t)return;const c=$('chat');if(c.textContent.startsWith('Nenhuma'))c.innerHTML='';c.insertAdjacentHTML('beforeend','<p><b>Você:</b> '+esc(t)+'</p>');$('msg').value=''};
+      const sb=$('start');if(sb)sb.onclick=()=>{card.querySelector('[data-status]').textContent='Em análise';card.querySelector('[data-status]').className='status review';$('r-st').textContent='Em análise';sb.remove();document.getElementById('st-reqs-foot').textContent='Nenhuma aguardando análise'};
+      if(focusChat)$('msg').focus();
+    }
+    document.querySelectorAll('.proposal').forEach(p=>{p.querySelector('.open-req').addEventListener('click',()=>reqDlg(p.dataset.id,false));p.querySelector('.open-chat').addEventListener('click',()=>reqDlg(p.dataset.id,true))});
+    applyFilter();
+    const themeKey='pet-link-theme',themeToggleButtons=document.querySelectorAll('[data-theme-toggle]');
+    function setTheme(theme){document.documentElement.dataset.theme=theme;localStorage.setItem(themeKey,theme);themeToggleButtons.forEach(button=>{button.textContent=theme==='dark'?'☀':'☾';button.setAttribute('aria-label',theme==='dark'?'Ativar tema claro':'Ativar tema escuro');button.title=theme==='dark'?'Ativar tema claro':'Ativar tema escuro'})}
+    setTheme(localStorage.getItem(themeKey)||'light');
+    themeToggleButtons.forEach(button=>button.addEventListener('click',()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark')));
+  </script>
+</body>
+</html>

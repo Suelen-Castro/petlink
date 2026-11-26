@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Perdidos e encontrados — Petlink</title>
+  <style>
+    :root{--ink:#241d2b;--muted:#69756e;--green:#3f7652;--green2:#5e936a;--green-dark:#1f3526;--pale:#e4efdf;--lime:#f4c430;--cream:#fffdf6;--white:#fff;--line:#e7e7de;--orange:#f4c430;--shadow:0 18px 50px #241d2b12}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+    header{height:82px;display:flex;align-items:center;border-bottom:1px solid #241d2b10;background:#ffffffeF;position:sticky;top:0;z-index:10;backdrop-filter:blur(16px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px}.logo-image{display:block;width:132px;height:44px;object-fit:contain;object-position:left center}nav{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:650;color:#516159}nav a:hover,nav a.active{color:var(--green)}.nav-actions{display:flex;align-items:center;gap:10px}.btn{border:0;border-radius:999px;padding:12px 18px;font-size:13px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.btn-outline{background:transparent;border:1px solid #ccd4cb;color:var(--ink)}.btn-primary{background:var(--green);color:white}.btn-primary:hover{background:var(--green-dark)}.btn-lime{background:var(--lime);color:var(--ink)}.menu-toggle{display:none;border:0;background:transparent;font-size:26px;color:var(--ink)}.theme-toggle{width:35px;height:35px;border:1px solid var(--line);border-radius:50%;background:var(--white);color:var(--green);font-size:17px;display:grid;place-items:center;flex:none}
+    .hero{padding:48px 0 36px;background:linear-gradient(135deg,#244934 0%,#3f7652 60%,#5e936a 100%);color:#fff}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--lime);font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--lime)}h1{font-size:clamp(36px,4.5vw,56px);line-height:1.05;letter-spacing:-2.4px;margin:14px 0 14px;font-weight:850}.hero p{color:#e3efe5;font-size:16px;line-height:1.65;max-width:580px;margin:0}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .filters{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px;display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:10px;box-shadow:var(--shadow);color:var(--ink)}.field{padding:6px 12px;border-right:1px solid var(--line)}.field label{display:block;font-size:10px;font-weight:800;color:#617168;margin-bottom:4px;text-transform:uppercase}.field input,.field select{width:100%;border:0;background:transparent;outline:0;font-size:13px;color:var(--ink)}.filters .btn{border-radius:12px;padding:0 20px}
+    .section{padding:48px 0 64px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}.section-head h2{font-size:clamp(26px,3vw,36px);letter-spacing:-1.4px;margin:8px 0 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:#fff;border:1px solid #ecece5;border-radius:22px;overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.card-img{height:210px;position:relative;overflow:hidden;background:#e4efdf}.card-img img{width:100%;height:100%;object-fit:cover;display:block}.badge{position:absolute;top:12px;left:12px;border-radius:999px;padding:6px 11px;font-size:10px;font-weight:800;text-transform:uppercase}.badge.perdido{background:#fde68a;color:#6b4400}.badge.avistado{background:#dbeafe;color:#1e40af}.card-body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.card-top h3{margin:0;font-size:19px}.card-top span{font-size:12px;color:var(--muted)}.card-desc{margin:0;font-size:13px;color:var(--muted);line-height:1.55}.meta{display:flex;flex-wrap:wrap;gap:8px;font-size:11px;font-weight:650;color:#315e48}.meta span{background:var(--pale);padding:5px 9px;border-radius:8px}.reporter{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}.reporter-info{display:flex;align-items:center;gap:9px}.reporter-info img{width:34px;height:34px;border-radius:50%;object-fit:cover}.reporter-info small{display:block;font-size:10px;color:var(--muted)}.reporter-info strong{font-size:12px}.btn-sm{padding:8px 12px;font-size:11px;border-radius:10px;background:var(--pale);color:var(--green)}.btn-sm:hover{background:var(--green);color:#fff}
+    .report-box{margin-top:44px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:var(--shadow)}.report-box h2{margin:6px 0 8px;font-size:24px;letter-spacing:-1px}.report-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}.input-group{display:flex;flex-direction:column;gap:6px}.input-group.full{grid-column:1/-1}.input-group label{font-size:11px;font-weight:750;color:#4f5e55}.input-group input,.input-group select,.input-group textarea{border:1px solid #d5dbd3;border-radius:12px;padding:11px 13px;font-size:13px;color:var(--ink);background:var(--cream)}.input-group textarea{min-height:84px;resize:vertical}
+    footer{padding:26px 0 36px;border-top:1px solid var(--line);color:#778179;font-size:12px}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.notice{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:13px;box-shadow:var(--shadow);transition:.25s;z-index:30}.notice.show{opacity:1;transform:translate(-50%,0)}
+    html[data-theme="dark"]{color-scheme:dark;--ink:#f6f1fa;--muted:#bdb2c9;--cream:#17141b;--white:#202820;--line:#354337;--pale:#263d2e;--shadow:0 14px 38px #0005}html[data-theme="dark"] body{background:#17141b;color:var(--ink)}html[data-theme="dark"] header{background:#17141beF;border-color:#354337}html[data-theme="dark"] .filters,html[data-theme="dark"] .card,html[data-theme="dark"] .report-box{background:#202820;border-color:#354337}html[data-theme="dark"] .field input,html[data-theme="dark"] .field select,html[data-theme="dark"] .input-group input,html[data-theme="dark"] .input-group select,html[data-theme="dark"] .input-group textarea{background:#17141b;color:var(--ink);border-color:#354337}
+    @media(max-width:850px){.grid{grid-template-columns:1fr 1fr}.filters{grid-template-columns:1fr 1fr}}
+    @media(max-width:700px){.wrap{width:calc(100% - 34px)}.menu-toggle{display:block}nav{display:none;position:absolute;top:81px;left:0;right:0;background:var(--cream);padding:18px 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}nav.open{display:flex}.grid,.report-grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr}.field{border-right:0;border-bottom:1px solid var(--line)}}
+  
+    .dlg-back{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;padding:18px;z-index:60}
+    .dlg-back.open{display:flex}
+    .dlg{background:var(--white);color:var(--ink);border-radius:20px;max-width:640px;width:100%;max-height:90vh;overflow:auto;padding:26px 28px;box-shadow:0 30px 80px #0006;position:relative}
+    .dlg h2{margin:0 0 4px;font-size:22px;letter-spacing:-.5px;padding-right:28px}
+    .dlg h4{margin:18px 0 6px;font-size:13px}
+    .dlg p,.dlg li,.dlg dd{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 6px}
+    .dlg ul{margin:0;padding-left:18px}
+    .dlg dl{margin:0;display:grid;grid-template-columns:150px 1fr;gap:6px 14px}
+    .dlg dt{font-size:12px;font-weight:750;color:var(--ink)}
+    .dlg dd{margin:0}
+    .dlg-x{position:absolute;top:12px;right:16px;border:0;background:transparent;font-size:26px;line-height:1;color:var(--muted);cursor:pointer}
+    .dlg-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .dlg .note{background:var(--pale,#e4efdf);border-radius:12px;padding:10px 13px;font-size:12px;line-height:1.55;color:var(--ink);margin:12px 0 0}
+    .dlg label{display:block;font-size:12px;font-weight:750;margin:12px 0 5px;color:var(--ink)}
+    .dlg input,.dlg select,.dlg textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink);font:inherit;font-size:13px}
+    .dlg textarea{min-height:84px;resize:vertical}
+    .dlg .err{color:#b3261e;font-size:12px;margin-top:10px;display:none}
+    .dlg .err.show{display:block}
+    .dlg .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .dlg-btn{border:0;border-radius:999px;padding:11px 18px;font-weight:750;font-size:13px;cursor:pointer;background:var(--green);color:#fff}
+    .dlg-btn.alt{background:transparent;border:1px solid var(--line);color:var(--ink)}
+    .chip{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:750;background:var(--pale,#e4efdf);color:var(--green)}
+    .demo-note{font-size:12px;color:var(--muted);margin:0 0 18px}
+    @media(max-width:600px){.dlg dl{grid-template-columns:1fr}.dlg .two{grid-template-columns:1fr}}
+
+    .badge.encontrado{background:#d1fae5;color:#065f46}
+    .btn-sm{border:0;cursor:pointer}
+    .lost-item .card-desc{margin-bottom:8px}
+    @media(min-width:851px){.filters .btn{min-height:44px}}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="home.html"><img class="logo-image" src="assets/logo/logo-verde-sem-fundo.webp" alt="Petlink"></a>
+      <nav id="main-nav" aria-label="Navegação principal">
+        <a href="home.html#adocao">Adotar</a>
+        <a class="active" href="pets-perdidos.html">Perdidos e encontrados</a>
+        <a href="marketplace.html">Catálogo de parceiros</a>
+        <a href="ong.html">Área da ONG</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="#registrar-alerta">Publicar aviso</a>
+        <button class="theme-toggle" data-theme-toggle aria-label="Alternar tema claro ou escuro" title="Alternar tema">☾</button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow"><i></i> Rede colaborativa de reencontros</div>
+        <h1>Perdidos, avistados e encontrados na sua região</h1>
+        <p>Perdeu um cão ou gato? Viu ou encontrou um animal? Publique um aviso. Quem acolhe um animal encontrado pode ser uma pessoa ou uma ONG, e ninguém é obrigado a fazê-lo.</p>
+        <div class="hero-actions">
+          <a class="btn btn-lime" href="#registrar-alerta">Publicar aviso →</a>
+          <a class="btn btn-outline" style="color:#fff;border-color:#fff8" href="#lista-perdidos">Ver avisos ativos</a>
+        </div>
+
+        <form class="filters" id="lost-filter-form" style="grid-template-columns:1.4fr 1fr 1fr 1fr auto">
+          <div class="field"><label for="f-busca">Nome ou característica</label><input id="f-busca" placeholder="Ex.: coleira azul, dócil"></div>
+          <div class="field"><label for="f-status">Tipo de aviso</label><select id="f-status"><option value="all">Todos</option><option>Perdido</option><option>Avistado</option><option>Encontrado</option></select></div>
+          <div class="field"><label for="f-bairro">Município ou bairro</label><input id="f-bairro" placeholder="Ex.: Pinheiros, São Paulo"></div>
+          <div class="field"><label for="f-esp">Espécie</label><select id="f-esp"><option value="all">Cão e gato</option><option>Cão</option><option>Gato</option></select></div>
+          <button class="btn btn-primary" type="submit">Filtrar</button>
+          <div class="field" style="grid-column:span 2"><label for="f-cor">Cor</label><input id="f-cor" placeholder="Ex.: caramelo, preto e branco"></div>
+          <div class="field" style="grid-column:span 2"><label for="f-acol">Acolhimento</label><select id="f-acol"><option value="all">Qualquer</option><option value="acolhido">Animal acolhido por alguém</option></select></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="lista-perdidos">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow" style="color:var(--green)"><i></i> Avisos recentes</div>
+            <h2>Acompanhe quem precisa voltar para casa</h2>
+            <p class="demo-note" id="count" role="status"></p>
+          </div>
+        </div>
+        <div class="grid" id="lost-grid"></div>
+        <div class="empty" id="lost-empty" style="display:none;text-align:center;padding:30px">Nenhum aviso ativo com esses critérios. Tente remover algum filtro ou publique um aviso.</div>
+
+        <div class="report-box" id="registrar-alerta">
+          <div class="eyebrow" style="color:var(--green)"><i></i> Novo aviso</div>
+          <h2>Publicar aviso</h2>
+          <p style="margin:0;color:var(--muted);font-size:13px">Para publicar é preciso entrar na conta. Nesta demonstração, os avisos ficam salvos só durante a sessão e a publicação usa uma conta demonstrativa.</p>
+          <form id="lost-form">
+            <div class="report-grid">
+              <div class="input-group"><label for="r-status">Tipo de aviso</label><select id="r-status"><option value="Perdido">Perdido: é o meu animal</option><option value="Avistado">Avistado: vi o animal, mas não estou com ele</option><option value="Encontrado">Encontrado: estou com o animal</option></select></div>
+              <div class="input-group"><label for="r-nome">Nome do animal (opcional)</label><input id="r-nome" placeholder="Deixe em branco se não souber"></div>
+              <div class="input-group"><label for="r-especie">Espécie</label><select id="r-especie" required><option value="">Selecione</option><option>Cão</option><option>Gato</option></select></div>
+              <div class="input-group"><label for="r-cor">Cor</label><select id="r-cor"><option value="">Selecione</option><option>Branco</option><option>Preto</option><option>Caramelo</option><option>Cinza</option><option>Marrom</option><option>Preto e branco</option><option>Rajado</option><option>Outra / não sei</option></select></div>
+              <div class="input-group"><label for="r-padrao">Padrão da pelagem</label><select id="r-padrao"><option>Não sei</option><option>Liso (uma cor)</option><option>Rajado</option><option>Manchado</option><option>Tricolor</option></select></div>
+              <div class="input-group"><label for="r-raca">Raça</label><input id="r-raca" placeholder="Ex.: sem raça definida, ou &quot;não sei&quot;"></div>
+              <div class="input-group"><label for="r-porte">Porte</label><select id="r-porte"><option>Não sei</option><option>Pequeno</option><option>Médio</option><option>Grande</option></select></div>
+              <div class="input-group"><label for="r-sexo">Sexo</label><select id="r-sexo"><option>Não sei</option><option>Macho</option><option>Fêmea</option></select></div>
+              <div class="input-group"><label for="r-city">Município e UF</label><input id="r-city" required placeholder="Ex.: Jacareí, SP"></div>
+              <div class="input-group"><label for="r-bairro">Bairro ou ponto de referência</label><input id="r-bairro" placeholder="Ex.: Centro, perto da praça"></div>
+              <div class="input-group"><label for="r-data">Data</label><input id="r-data" type="date" required></div>
+              <div class="input-group"><label for="r-hora">Horário</label><input id="r-hora" type="time"><label style="font-weight:500"><input type="checkbox" id="r-hora-nao" style="width:auto"> Não sei o horário</label></div>
+              <div class="input-group" id="g-acol" style="display:none"><label for="r-acol">Acolhimento</label><select id="r-acol"><option>Está com quem encontrou</option><option>Está com uma ONG</option><option>Está com outra pessoa</option></select></div>
+              <div class="input-group"><label for="r-foto">Foto (opcional)</label><input id="r-foto" type="file" accept="image/*"></div>
+              <div class="input-group full"><label for="r-desc">Características e detalhes</label><textarea id="r-desc" required placeholder="Coleira, cicatrizes, comportamento, onde foi visto. O contato acontece pela conta; não publique telefone ou endereço."></textarea></div>
+            </div>
+            <div class="err" id="r-err" role="alert" style="display:none;color:#b3261e;font-size:13px;margin-top:10px"></div>
+            <div style="margin-top:16px"><button class="btn btn-primary" type="submit">Publicar aviso →</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="brand" href="home.html"><img class="logo-image" src="assets/logo/logo-verde-sem-fundo.webp" alt="Petlink"></a>
+      <span>Rede de apoio e adoção responsável. © 2026 Petlink · Avisos de exemplo</span>
+      <div style="display:flex;gap:18px"><a href="home.html">Início</a><a href="marketplace.html">Catálogo</a><a href="ong.html">ONGs</a></div>
+    </div>
+  </footer>
+
+  <div class="notice" id="notice" role="status"></div>
+  <script>
+    const SEEDS=[{"id": "s1", "type": "Perdido", "name": "Thor", "species": "Cão", "cor": "Caramelo", "porte": "Médio", "sexo": "Macho", "city": "São Paulo, SP", "bairro": "Pinheiros", "when": "Hoje, 16h20", "img": "assets/animais/cachorro3.webp", "who": "Luís", "av": "assets/adotantes/luis.jpg", "own": false, "shelter": "", "relatos": [], "desc": "Atende pelo nome, usa coleira azul com plaquinha e escapou durante o passeio no fim da tarde.", "done": false}, {"id": "s2", "type": "Avistado", "name": "", "species": "Cão", "cor": "Branco", "porte": "Médio", "sexo": "Não sei", "city": "São Paulo, SP", "bairro": "Vila Mariana", "when": "Ontem, 19h10", "img": "assets/animais/cachorro4.webp", "who": "Beatriz", "av": "assets/adotantes/beatriz.jpg", "own": false, "shelter": "Não está com quem avistou", "relatos": [], "desc": "Cão jovem e muito amigável, visto ao lado da prefeitura.", "done": false}, {"id": "s3", "type": "Perdido", "name": "Ameixa", "species": "Gato", "cor": "Não informada", "porte": "Pequeno", "sexo": "Fêmea", "city": "Campinas, SP", "bairro": "Cambuí", "when": "Há 2 dias", "img": "assets/animais/gato3.webp", "who": "José", "av": "assets/adotantes/jose.jpg", "own": false, "shelter": "", "relatos": [], "desc": "Costuma se esconder em locais calmos. Há microchip registrado; ele só é consultado após leitura presencial e não rastreia o animal.", "done": false}, {"id": "s4", "type": "Encontrado", "name": "", "species": "Gato", "cor": "Preto e branco", "porte": "Pequeno", "sexo": "Não sei", "city": "Santo André, SP", "bairro": "Centro", "when": "Hoje, 10h30", "img": "", "who": "Marília", "av": "assets/adotantes/marilia.jpg", "own": false, "shelter": "Está com quem encontrou", "relatos": [], "desc": "Gato adulto, dócil, sem coleira. Está em casa com quem o encontrou, aguardando o tutor.", "done": false}];
+
+    const $=id=>document.getElementById(id);
+    const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+    function dlg(html){let b=$('dlg-back');if(!b){b=document.createElement('div');b.id='dlg-back';b.className='dlg-back';b.innerHTML='<div class="dlg" role="dialog" aria-modal="true"><button class="dlg-x" aria-label="Fechar" data-close>×</button><div id="dlg-body"></div></div>';document.body.appendChild(b);b.addEventListener('click',e=>{if(e.target===b||e.target.closest('[data-close]'))closeDlg()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDlg()})}$('dlg-body').innerHTML=html;b.classList.add('open');return $('dlg-body')}
+    function closeDlg(){const b=$('dlg-back');if(b)b.classList.remove('open')}
+
+    const menuButton=$('menu-toggle'),mainNav=$('main-nav');
+    menuButton.addEventListener('click',()=>{const o=mainNav.classList.toggle('open');menuButton.setAttribute('aria-expanded',o);menuButton.textContent=o?'×':'☰'});
+    let nt;function notice(m){const n=$('notice');n.textContent=m;n.classList.add('show');clearTimeout(nt);nt=setTimeout(()=>n.classList.remove('show'),3200)}
+    const KEY='petlink-avisos-v2';let alerts;
+    try{alerts=JSON.parse(sessionStorage.getItem(KEY)||'null')}catch(e){}
+    if(!alerts)alerts=JSON.parse(JSON.stringify(SEEDS));
+    function save(){try{sessionStorage.setItem(KEY,JSON.stringify(alerts))}catch(e){}}
+    let logged=false;try{logged=sessionStorage.getItem('petlink-login')==='1'}catch(e){}
+    function needLogin(cb){if(logged)return cb();dlg('<h2>Entrar na conta</h2><p>Para publicar, enviar relatos ou entrar em contato é preciso estar identificado. O contato público mostra só o primeiro nome.</p><div class="note">Demonstração: use a conta de exemplo para continuar. Nenhum dado real é coletado.</div><div class="dlg-actions"><button class="dlg-btn" id="login">Entrar com conta de exemplo</button><button class="dlg-btn alt" data-close>Cancelar</button></div>');$('login').onclick=()=>{logged=true;try{sessionStorage.setItem('petlink-login','1')}catch(e){}closeDlg();cb()}}
+    const BADGE={Perdido:'perdido',Avistado:'avistado',Encontrado:'encontrado'};
+    function actions(a){
+      if(a.own){
+        if(a.type==='Perdido')return '<button class="btn btn-sm" data-act="voltou">Meu pet voltou</button>';
+        if(a.type==='Encontrado')return '<button class="btn btn-sm" data-act="acolh">Atualizar acolhimento</button><button class="btn btn-sm" data-act="devol">Registrar devolução</button>';
+        return '<button class="btn btn-sm" data-act="relato">Atualizar relato</button>';
+      }
+      if(a.type==='Perdido')return '<button class="btn btn-sm" data-act="relato">Avistei este animal</button>';
+      return '<button class="btn btn-sm" data-act="contato">Entrar em contato</button>';
+    }
+    function cardHTML(a){
+      const img=a.img?'<img src="'+a.img+'" alt="'+esc((a.name||'Animal sem nome')+', '+a.species.toLowerCase())+'" loading="lazy">':'<div style="height:100%;display:grid;place-items:center;color:var(--muted);font-size:13px;background:var(--pale,#e4efdf)">Foto não disponível</div>';
+      const rel=a.relatos.length?'<div class="note-rel" style="font-size:12px;color:var(--muted);margin-top:6px"><b>Relatos vinculados ('+a.relatos.length+'):</b><br>'+a.relatos.map(r=>esc(r)).join('<br>')+'</div>':'';
+      const ac=a.shelter?'<div style="font-size:12px;color:var(--muted);margin-top:4px">Acolhimento: '+esc(a.shelter)+'</div>':'';
+      return '<article class="card lost-item" data-id="'+a.id+'"><div class="card-img"><span class="badge '+BADGE[a.type]+'">'+a.type+'</span>'+img+'</div><div class="card-body"><div class="card-top"><h3>'+esc(a.name||'Nome não informado')+'</h3><span>'+esc(a.species)+' · '+esc(a.cor)+(a.porte!=='Não sei'?' · '+esc(a.porte.toLowerCase()):'')+'</span></div><p class="card-desc">'+esc(a.desc)+'</p><div class="meta"><span>📍 '+esc((a.bairro?a.bairro+', ':'')+a.city)+'</span><span>🕒 '+esc(a.when)+'</span></div>'+ac+rel+'<div class="reporter" style="flex-wrap:wrap"><div class="reporter-info">'+(a.av?'<img src="'+a.av+'" alt="'+esc(a.who)+'" style="width:34px;height:34px;border-radius:50%;object-fit:cover">':'<span style="width:34px;height:34px;border-radius:50%;background:var(--pale,#e4efdf);color:var(--green);display:grid;place-items:center;font-weight:800">'+esc(a.who[0])+'</span>')+'<div><small>'+(a.type==='Perdido'?'Responsável':a.type==='Avistado'?'Visto por':'Encontrado por')+'</small><strong>'+esc(a.who)+(a.own?' (você)':'')+'</strong></div></div><div style="display:flex;gap:6px;flex-wrap:wrap">'+actions(a)+'</div></div></div></article>';
+    }
+    function render(){
+      const q=norm($('f-busca').value),t=$('f-status').value,loc=norm($('f-bairro').value),sp=$('f-esp').value,cor=norm($('f-cor').value),ac=$('f-acol').value;
+      const list=alerts.filter(a=>{if(a.done)return false;
+        const hay=norm([a.name,a.species,a.cor,a.desc,a.raca,a.padrao].join(' '));
+        return (!q||hay.includes(q))&&(t==='all'||a.type===t)&&(!loc||norm(a.bairro+' '+a.city).includes(loc))&&(sp==='all'||a.species===sp)&&(!cor||norm(a.cor).includes(cor))&&(ac==='all'||a.shelter.startsWith('Está com'))});
+      $('lost-grid').innerHTML=list.map(cardHTML).join('');
+      $('lost-empty').style.display=list.length?'none':'block';
+      $('count').textContent=list.length+(list.length===1?' aviso ativo':' avisos ativos');
+    }
+    $('lost-filter-form').addEventListener('submit',e=>{e.preventDefault();render();$('lista-perdidos').scrollIntoView({behavior:'smooth'})});
+    ['f-status','f-esp','f-acol'].forEach(id=>$(id).addEventListener('change',render));['f-busca','f-bairro','f-cor'].forEach(id=>$(id).addEventListener('input',render));
+
+    function reportDlg(a){
+      dlg('<h2>Avistei este animal</h2><p>O relato fica na mesma ocorrência do aviso de '+esc(a.name||'animal sem nome')+'.</p>'
+        +'<label for="x-loc">Onde você viu?</label><input id="x-loc" placeholder="Bairro ou ponto de referência">'
+        +'<div class="two"><div><label for="x-d">Data</label><input id="x-d" type="date"></div><div><label for="x-h">Horário</label><input id="x-h" type="time"></div></div>'
+        +'<label for="x-o">Observações</label><textarea id="x-o" placeholder="Estado do animal, para onde seguiu..."></textarea>'
+        +'<div class="err" id="x-err" role="alert"></div><div class="dlg-actions"><button class="dlg-btn" id="x-ok">Adicionar relato</button><button class="dlg-btn alt" data-close>Cancelar</button></div>');
+      $('x-d').max=new Date().toISOString().slice(0,10);
+      $('x-ok').onclick=()=>{const loc=$('x-loc').value.trim(),o=$('x-o').value.trim();if(!loc&&!o){$('x-err').textContent='Informe onde viu ou escreva uma observação.';$('x-err').classList.add('show');return}
+        a.relatos.push((loc||'Local não informado')+(($('x-d').value)?' · '+$('x-d').value.split('-').reverse().join('/'):'')+($('x-h').value?' · '+$('x-h').value:'')+(o?' — '+o:''));save();closeDlg();render();notice('Relato adicionado a este aviso (exemplo da sessão)')};
+    }
+    function contactDlg(a){
+      dlg('<h2>Entrar em contato</h2><p>Você falará com <b>'+esc(a.who)+'</b> pela conta Petlink. Telefone e endereço não são exibidos publicamente.</p><label for="c-m">Mensagem</label><textarea id="c-m" placeholder="Conte o que você sabe ou por que acha que é o seu animal"></textarea><div class="dlg-actions"><button class="dlg-btn" id="c-ok">Enviar mensagem</button><button class="dlg-btn alt" data-close>Cancelar</button></div><div id="c-r"></div>');
+      $('c-ok').onclick=()=>{if(!$('c-m').value.trim())return;$('c-r').innerHTML='<div class="note">Mensagem registrada nesta demonstração. Ela não é entregue a nenhuma pessoa real.</div>'};
+    }
+    function confirmDlg(title,text,okLabel,fn){dlg('<h2>'+title+'</h2><p>'+text+'</p><div class="dlg-actions"><button class="dlg-btn" id="k-ok">'+okLabel+'</button><button class="dlg-btn alt" data-close>Cancelar</button></div>');$('k-ok').onclick=()=>{fn();closeDlg()}}
+    $('lost-grid').addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=alerts.find(x=>x.id===b.closest('.lost-item').dataset.id),act=b.dataset.act;
+      needLogin(()=>{
+        if(act==='relato')reportDlg(a);
+        else if(act==='contato')contactDlg(a);
+        else if(act==='voltou')confirmDlg('Meu pet voltou','Ao confirmar, este aviso sai da lista ativa. Avisos vinculados a ele seriam atualizados no produto.','Confirmar reencontro',()=>{a.done=true;save();render();notice('Reencontro registrado neste aviso')});
+        else if(act==='devol')confirmDlg('Registrar devolução','Confirme que o animal foi devolvido ao tutor. O aviso sai da lista ativa.','Registrar devolução',()=>{a.done=true;save();render();notice('Devolução registrada neste aviso')});
+        else if(act==='acolh'){dlg('<h2>Atualizar acolhimento</h2><label for="u-a">Situação atual</label><select id="u-a"><option>Está com quem encontrou</option><option>Está com uma ONG</option><option>Está com outra pessoa</option></select><div class="dlg-actions"><button class="dlg-btn" id="u-ok">Salvar</button><button class="dlg-btn alt" data-close>Cancelar</button></div>');$('u-ok').onclick=()=>{a.shelter=$('u-a').value;save();closeDlg();render();notice('Acolhimento atualizado')}}
+      })});
+
+    $('r-data').max=new Date().toISOString().slice(0,10);
+    $('r-status').addEventListener('change',()=>{$('g-acol').style.display=$('r-status').value==='Encontrado'?'flex':'none'});
+    $('r-hora-nao').addEventListener('change',()=>{$('r-hora').disabled=$('r-hora-nao').checked});
+    $('lost-form').addEventListener('submit',e=>{e.preventDefault();
+      const err=m=>{const x=$('r-err');x.textContent=m;x.style.display='block'};
+      if(!$('r-especie').value){err('Escolha a espécie: cão ou gato.');return}
+      if(!$('r-cor').value){err('Escolha a cor principal ou "Outra / não sei".');return}
+      $('r-err').style.display='none';
+      needLogin(()=>{
+        const type=$('r-status').value;const d=$('r-data').value.split('-').reverse().join('/');
+        const when=d+($('r-hora-nao').checked||!$('r-hora').value?' (horário desconhecido)':' · '+$('r-hora').value);
+        const a={id:'u'+Date.now(),type,name:$('r-nome').value.trim(),species:$('r-especie').value,cor:$('r-cor').value,padrao:$('r-padrao').value,raca:$('r-raca').value.trim(),porte:$('r-porte').value,sexo:$('r-sexo').value,city:$('r-city').value.trim(),bairro:$('r-bairro').value.trim(),when,img:'',who:'Você',own:true,shelter:type==='Encontrado'?$('r-acol').value:(type==='Avistado'?'Não está com quem avistou':''),relatos:[],desc:$('r-desc').value.trim(),done:false};
+        const f=$('r-foto').files[0];
+        const finish=()=>{alerts.unshift(a);save();render();$('lost-form').reset();$('g-acol').style.display='none';$('r-hora').disabled=false;$('lista-perdidos').scrollIntoView({behavior:'smooth'});notice('Aviso publicado (exemplo da sessão)')};
+        if(f&&f.size<600000){const r=new FileReader();r.onload=()=>{a.img=r.result;finish()};r.readAsDataURL(f)}else finish();
+      });
+    });
+    render();
+    const themeKey='pet-link-theme',themeToggleButtons=document.querySelectorAll('[data-theme-toggle]');
+    function setTheme(theme){document.documentElement.dataset.theme=theme;localStorage.setItem(themeKey,theme);themeToggleButtons.forEach(b=>{b.textContent=theme==='dark'?'☀':'☾'})}
+    setTheme(localStorage.getItem(themeKey)||'light');
+    themeToggleButtons.forEach(b=>b.addEventListener('click',()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark')));
+  </script>
+</body>
+</html>
